@@ -6,4 +6,8 @@ public class PClave {
         this.palabra = palabra;
         this.wAsociadas = new ListaWeb();
     }
+
+    public String obtenerPalabra (){
+        return this.palabra;
+    }
 }

@@ -7,4 +7,9 @@ public class ListaPClave {
     public ListaPClave (){
         this.lista = new ArrayList<PClave>();
     }
+
+    public ArrayList <PClave> web2Words (String s){
+
+        return null;
+    }
 }

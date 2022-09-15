@@ -8,4 +8,9 @@ public class Web {
         this.wAsociadas = new ListaWeb();
         this. nombreWeb = nombreWeb;
     }
+
+    public String obtenerNombre (){
+
+        return this.nombreWeb;
+    }
 }

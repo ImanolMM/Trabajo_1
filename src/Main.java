@@ -1,3 +1,4 @@
+import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -17,7 +18,8 @@ public class Main {
 
     protected static ListaWeb cargarWebs(String nomF){
         try{
-            Scanner entrada = new Scanner(new FileReader(nomF));
+            webs = new ListaWeb();
+            Scanner entrada = new Scanner(new FileReader(System.getProperty("user.dir")+"\\src\\"+nomF));
             String linea;
 
             while (entrada.hasNext()){

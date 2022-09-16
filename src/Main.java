@@ -28,12 +28,10 @@ public class Main {
                 String []partes = linea.split(":");
                 webs.añadirWeb(partes [1]);
             }
-
-            entrada = new Scanner(new FileReader(System.getProperty("user.dir")+"\\src\\index-2022-2023"));
+            entrada = new Scanner(new FileReader(System.getProperty("user.dir")+"\\src\\words.txt"));
             while (entrada.hasNext()){
                 linea = entrada.nextLine();
-                String []partes = linea.split(":");
-                palabras.añadirPalabra(partes [1]);
+                palabras.añadirPalabra(linea);
             }
             cargado = true;
             entrada.close();

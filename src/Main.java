@@ -16,10 +16,11 @@ public class Main {
         cargado = false;
     }
 
-    protected static ListaWeb cargarWebs(String nomF){
+    protected static ListaWeb cargarArchivos(){
         try{
             webs = new ListaWeb();
-            Scanner entrada = new Scanner(new FileReader(System.getProperty("user.dir")+"\\src\\"+nomF));
+            palabras = new ListaPClave();
+            Scanner entrada = new Scanner(new FileReader(System.getProperty("user.dir")+"\\src\\index-2022-2023"));
             String linea;
 
             while (entrada.hasNext()){
@@ -27,13 +28,21 @@ public class Main {
                 String []partes = linea.split(":");
                 webs.añadirWeb(partes [1]);
             }
+
+            entrada = new Scanner(new FileReader(System.getProperty("user.dir")+"\\src\\index-2022-2023"));
+            while (entrada.hasNext()){
+                linea = entrada.nextLine();
+                String []partes = linea.split(":");
+                palabras.añadirPalabra(partes [1]);
+            }
+            cargado = true;
             entrada.close();
         }
         catch (IOException e){e.printStackTrace();}
         return webs;
     }
     public static void prueba(){
-        cargarWebs("index-2022-2023");
+        cargarArchivos();
         System.out.println(webs.id2String(1));
     }
     public static void main(String[] args){

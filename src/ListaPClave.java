@@ -13,4 +13,8 @@ public class ListaPClave {
 
         return null;
     }
+
+    public void añadirPalabra (String nomP){
+        this.lista.add(new PClave(nomP));
+    }
 }

@@ -44,6 +44,10 @@ public class Main {
         System.out.println(webs.id2String(1));
     }
     public static void main(String[] args){
+
         prueba();
+        String p2 = "cbdesamad";
+        String p1 = "dbdesamad";
+        System.out.println(p1.compareTo(p2));
     }
 }

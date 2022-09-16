@@ -1,19 +1,39 @@
-import java.util.ArrayList;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Scanner;
 
 public class Main {
 
-    private ArrayList<Web> webs;
-    private ArrayList <PClave> palabras;
-    private boolean cargado;
+    private static ListaWeb webs;
+    private static ListaPClave palabras;
+    private static boolean cargado;
 
     public Main (){
-        this.webs = new ListaWeb();
-        this.palabras = new ListaPClave();
-        this.cargado = false;
+        webs = new ListaWeb();
+        palabras = new ListaPClave();
+        cargado = false;
     }
-    public static void main (String [] args){
-        System.out.println("hola");
-        //hola
-        //HOLas
+
+    protected static ListaWeb cargarWebs(String nomF){
+        try{
+            Scanner entrada = new Scanner(new FileReader(nomF));
+            String linea;
+
+            while (entrada.hasNext()){
+                linea = entrada.nextLine();
+                String []partes = linea.split(":");
+                webs.añadirWeb(partes [1]);
+            }
+            entrada.close();
+        }
+        catch (IOException e){e.printStackTrace();}
+        return webs;
+    }
+    public static void prueba(){
+        cargarWebs("index-2022-2023");
+        System.out.println(webs.id2String(1));
+    }
+    public static void main(String[] args){
+        prueba();
     }
 }

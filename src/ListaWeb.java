@@ -35,7 +35,7 @@ public class ListaWeb{
     }
 
     public void añadirWeb (String s){
-        this.lista.add (new Web("s"));
+        this.lista.add (new Web(s));
     }
 
     public void quitarWeb (String s){

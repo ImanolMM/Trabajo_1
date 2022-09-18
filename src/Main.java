@@ -1,7 +1,5 @@
-import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.Scanner;
 
 public class Main {
@@ -46,8 +44,8 @@ public class Main {
     public static void main(String[] args){
 
         prueba();
-        String p2 = "cbdesamad";
-        String p1 = "dbdesamad";
+        String p1 = "a";
+        String p2 = "b";
         System.out.println(p1.compareTo(p2));
     }
 }

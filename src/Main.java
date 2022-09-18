@@ -39,13 +39,13 @@ public class Main {
     }
     public static void prueba(){
         cargarArchivos();
-        System.out.println(webs.id2String(1));
+        webs.enlacesSaientes("0-100.com.cn");
     }
     public static void main(String[] args){
 
         prueba();
         String p1 = "a";
         String p2 = "b";
-        System.out.println(p1.compareTo(p2));
+        //System.out.println(p1.compareTo(p2));
     }
 }

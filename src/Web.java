@@ -13,4 +13,12 @@ public class Web {
 
         return this.nombreWeb;
     }
+
+    public void añadirWebRelacioanada(String nomWeb) {
+        this.wAsociadas.añadirWeb(nomWeb);
+    }
+
+    public String mostrarWebRelacionada (int ind){
+        return this.wAsociadas.id2String(ind);
+    }
 }

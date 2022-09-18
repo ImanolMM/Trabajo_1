@@ -2,7 +2,7 @@ public class Web {
     //hola
     private ListaPClave pAsociadas;
     private ListaWeb wAsociadas;
-    private String nombreWeb;
+    private String nombreWeb; //id????????????????
 
     public Web (String nombreWeb){
         this.pAsociadas = new ListaPClave();

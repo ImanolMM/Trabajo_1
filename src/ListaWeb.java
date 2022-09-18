@@ -58,7 +58,7 @@ public class ListaWeb{
             int ind = 0;
 
             while (ind < partes.length){
-                this.lista.get(id).añadirWebRelacioanada(this.id2String(Integer.parseInt(partes [ind])));
+                this.lista.get(id).añadirWebRelacioanada(this.id2String(Integer.parseInt(partes [ind]))); //eficienia???
                 System.out.println(partes [ind]);
                 ind ++;
             }

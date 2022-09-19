@@ -53,7 +53,7 @@ public class ListaWeb{
                 cont --;
             }
 
-            linea = linea.substring(8);
+            linea = linea.substring(7);
             String [] partes = linea.split(" ### ");
             int ind = 0;
 

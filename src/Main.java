@@ -19,16 +19,24 @@ public class Main {
         try{
             webs = new ListaWeb();
             palabras = new ListaPClave();
+
             Scanner entrada = new Scanner(new FileReader(System.getProperty("user.dir")+"\\src\\index-2022-2023"));
             String linea;
 
-            while (entrada.hasNext()){
+            while (entrada.hasNext()){ //loop de cargar webs
                 linea = entrada.nextLine();
                 String []partes = linea.split(":");
-                webs.añadirWeb(partes [1]);
+                webs.añadirWeb(partes [1], Integer.parseInt(partes [0]));
             }
+            int ind = 0;
+
+            while (ind < webs.obtenerNumWebs()){ //loop de buscar las webs relacionadas
+                webs.buscarWebRelacionadas(ind);
+                ind ++;
+            }
+
             entrada = new Scanner(new FileReader(System.getProperty("user.dir")+"\\src\\words.txt"));
-            while (entrada.hasNext()){
+            while (entrada.hasNext()){ // loop de cargar palabras
                 linea = entrada.nextLine();
                 palabras.añadirPalabra(linea);
             }
@@ -38,7 +46,9 @@ public class Main {
         catch (IOException e){e.printStackTrace();}
         return webs;
     }
+
     public static void prueba(){
+
         cargarArchivos();
         webs.enlacesSaientes("0-100.com.cn");
     }

@@ -1,22 +1,37 @@
+import java.util.ArrayList;
+
 public class Web {
     //hola
     private ListaPClave pAsociadas;
     private ListaWeb wAsociadas;
     private String nombreWeb; //id????????????????
 
-    public Web (String nombreWeb){
+    private int id;
+
+    public Web (String nombreWeb, int id){
         this.pAsociadas = new ListaPClave();
         this.wAsociadas = new ListaWeb();
         this. nombreWeb = nombreWeb;
+        this.id = id;
     }
 
-    public String obtenerNombre (){
+    protected ListaWeb obtenerWebAsociadas (){
+        return this.wAsociadas;
+    }
+
+    public String obtenerNombre (){ //
 
         return this.nombreWeb;
     }
 
-    public void añadirWebRelacioanada(String nomWeb) {
-        this.wAsociadas.añadirWeb(nomWeb);
+    public int obtenerId (){ //
+        return this.id;
+    }
+
+
+
+    public void añadirWebRelacioanada(String nomWeb, int id) {
+        this.wAsociadas.añadirWeb(nomWeb,id);
     }
 
     public String mostrarWebRelacionada (int ind){

@@ -42,7 +42,17 @@ public class ListaWeb{
 
     public ArrayList <Web> enlacesSaientes (String nomWeb){
         int id = this.string2Id(nomWeb);
+
+        return this.lista.get(id).obtenerWebAsociadas().obtenerArray();
+    }
+
+    public void buscarWebRelacionadas (int id) {
         int cont = id;
+        int digitos = 1;
+
+        if (id != 0){
+            digitos = (int)(Math.log10(id)+1);
+        }
 
         try{
             Scanner entrada = new Scanner(new FileReader(System.getProperty("user.dir")+"\\src\\pld-arcs-1-N-2022-2023"));
@@ -50,26 +60,33 @@ public class ListaWeb{
 
             while (entrada.hasNext() && cont >= 0){
                 linea = entrada.nextLine();
-                cont --;
+                cont--;
             }
 
-            linea = linea.substring(7);
+            linea = linea.substring(6 + digitos);
             String [] partes = linea.split(" ### ");
-            int ind = 0;
+            if (!partes[0].isEmpty()){
+                cont = 0;
+                while (cont < partes.length){
 
-            while (ind < partes.length){
-                this.lista.get(id).añadirWebRelacioanada(this.id2String(Integer.parseInt(partes [ind]))); //eficienia???
-                System.out.println(partes [ind]);
-                ind ++;
+                    this.lista.get(id).añadirWebRelacioanada((this.id2String(Integer.parseInt(partes [cont]))),Integer.parseInt(partes [cont]));
+                    cont ++;
+                }
             }
         }
         catch (IOException e){e.printStackTrace();}
-        System.out.println(lista.get(1).mostrarWebRelacionada(1));
-            return null; // hay que dovolverlo de manera literal o print ln?
     }
     public ArrayList <Web> webOrdenada (){
 
         return null;
+    }
+
+    private ArrayList <Web> obtenerArray (){
+        return this.lista;
+    }
+
+    public int obtenerNumWebs (){
+        return this.lista.size();
     }
 
     public ArrayList <Web> word2Webs (String s){
@@ -77,8 +94,8 @@ public class ListaWeb{
         return null;
     }
 
-    public void añadirWeb (String s){
-        this.lista.add (new Web(s));
+    public void añadirWeb (String nomWeb, int id){
+        this.lista.add (new Web(nomWeb, id));
     }
 
     public void quitarWeb (String s){

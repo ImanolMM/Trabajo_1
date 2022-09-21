@@ -49,6 +49,12 @@ public class Main {
 
     public static void prueba(){
 
+        String linea = "10 ---> ";
+        String [] partes = linea.split(" ---> ");
+        linea = partes [0];
+        partes = linea.split(" ### ");
+        System.out.println(partes.length);
+
         cargarArchivos();
         webs.enlacesSaientes("0-100.com.cn");
     }

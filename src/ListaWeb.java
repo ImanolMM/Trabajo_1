@@ -48,12 +48,7 @@ public class ListaWeb{
 
     public void buscarWebRelacionadas (int id) {
         int cont = id;
-        int digitos = 1;
-
-        if (id != 0){
-            digitos = (int)(Math.log10(id)+1);
-        }
-
+        System.out.println(id);
         try{
             Scanner entrada = new Scanner(new FileReader(System.getProperty("user.dir")+"\\src\\pld-arcs-1-N-2022-2023"));
             String linea = null;
@@ -63,15 +58,18 @@ public class ListaWeb{
                 cont--;
             }
 
-            linea = linea.substring(6 + digitos);
-            String [] partes = linea.split(" ### ");
-            if (!partes[0].isEmpty()){
-                cont = 0;
-                while (cont < partes.length){
+            String [] partes = linea.split(" ---> ");
 
-                    this.lista.get(id).añadirWebRelacioanada((this.id2String(Integer.parseInt(partes [cont]))),Integer.parseInt(partes [cont]));
+            if (partes.length > 1) {
+                linea = partes [1];
+                partes = linea.split(" ### ");
+                cont = 0;
+
+                while (cont < partes.length){ // hay que hacerlo por id no por posición
+                    this.buscarWebPorId(id).añadirWebRelacioanada((this.id2String(Integer.parseInt(partes [cont]))),Integer.parseInt(partes [cont]));
                     cont ++;
-                }
+
+                }// else?
             }
         }
         catch (IOException e){e.printStackTrace();}
@@ -81,6 +79,19 @@ public class ListaWeb{
         return null;
     }
 
+    public Web buscarWebPorId (int id){
+        int ind = 0;
+        boolean encontrado = false;
+        while (ind < this.lista.size() && !encontrado){
+            if (this.lista.get(ind).obtenerId() == id){
+                encontrado = true;
+            }
+            else{
+                ind ++;
+            }
+        }
+        return this.lista.get(ind);
+    }
     private ArrayList <Web> obtenerArray (){
         return this.lista;
     }

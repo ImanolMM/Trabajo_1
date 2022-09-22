@@ -74,9 +74,12 @@ public class Main {
             ind ++;
             System.out.println(ind);
         }
+
+        //pruebas
         cont =0;
-        while (cont < webs.binarySearch(20).obtenerWebAsociadas().obtenerNumWebs()){ //TODO falta arreglar los nombres de las webs
-            System.out.println(cont +"  :  " + webs.binarySearch(20).obtenerWebAsociadas().devolverWebPorPos(cont).obtenerId() + "  id:  " + webs.binarySearch(20).obtenerWebAsociadas().devolverWebPorPos(cont).obtenerNombre());
+        int idWeb= 0;
+        while (cont < webs.binarySearch(idWeb).obtenerWebAsociadas().obtenerNumWebs()){ //TODO falta arreglar los nombres de las webs
+            System.out.println(cont +"  :  " + webs.binarySearch(idWeb).obtenerWebAsociadas().devolverWebPorPos(cont).obtenerId() + "  nombre:  " + webs.binarySearch(idWeb).obtenerWebAsociadas().devolverWebPorPos(cont).obtenerNombre());
             cont ++;
         }
 

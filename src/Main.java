@@ -29,11 +29,11 @@ public class Main {
 
             entrada = new Scanner(new FileReader(System.getProperty("user.dir")+"\\src\\pld-arcs-1-N-2022-2023"));
 
-            int asd= 0;
+            int prueba= 0;// para pruebas
             while (entrada.hasNext()){
                 linea = entrada.nextLine();
                 String [] partes = linea.split(" ---> ");
-                System.out.println(asd);
+                System.out.println(prueba);
 
                 if (partes.length > 1) {
                     linea = partes [1];
@@ -43,7 +43,7 @@ public class Main {
                 else{
                     webRelacionadas.añadirWebRelacionadas(null);
                 }
-                asd++;
+                prueba++;
             }
 
             entrada = new Scanner(new FileReader(System.getProperty("user.dir")+"\\src\\words.txt"));
@@ -77,7 +77,7 @@ public class Main {
 
         //pruebas
         cont =0;
-        int idWeb= 0;
+        int idWeb= 20;
         while (cont < webs.binarySearch(idWeb).obtenerWebAsociadas().obtenerNumWebs()){ //TODO falta arreglar los nombres de las webs
             System.out.println(cont +"  :  " + webs.binarySearch(idWeb).obtenerWebAsociadas().devolverWebPorPos(cont).obtenerId() + "  nombre:  " + webs.binarySearch(idWeb).obtenerWebAsociadas().devolverWebPorPos(cont).obtenerNombre());
             cont ++;
@@ -87,7 +87,6 @@ public class Main {
     }
     public static void prueba(){
         cargarArchivos();
-        webs.enlacesSaientes("0-100.com.cn");
     }
     public static void main(String[] args){
 

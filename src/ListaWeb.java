@@ -81,7 +81,7 @@ public class ListaWeb{
 
     public Web binarySearch (int id){
         int primero = 0;
-        int ultimo=this.lista.size() -1;
+        int ultimo= this.lista.size() -1;
         int mid = (primero + ultimo)/2;
         int numId = 0;
         boolean salir = false;
@@ -99,9 +99,6 @@ public class ListaWeb{
                 ultimo = mid - 1;
             }
             mid = (primero + ultimo)/2;
-        }
-        if ( primero > ultimo ){
-            System.out.println("No encontrado");
         }
         return this.lista.get (numId);
     }

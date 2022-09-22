@@ -67,7 +67,7 @@ public class Main {
         while (ind < webs.obtenerNumWebs()){ //loop de buscar las webs relacionadas
             idWebs= webRelacionadas.obtenerListaWebs(ind);
             while (idWebs != null && cont < idWebs.length){
-                webs.binarySearch(ind).añadirWebRelacioanada(webs.binarySearch(ind).obtenerNombre(),Integer.parseInt(idWebs[cont]));
+                webs.binarySearch(ind).añadirWebRelacioanada(webs.binarySearch(Integer.parseInt(idWebs [cont])).obtenerNombre(), Integer.parseInt(idWebs[cont]));
                 cont ++;
             }
             cont = 0;
@@ -76,7 +76,7 @@ public class Main {
         }
         cont =0;
         while (cont < webs.binarySearch(20).obtenerWebAsociadas().obtenerNumWebs()){ //TODO falta arreglar los nombres de las webs
-            System.out.println(cont +"  :  " + webs.binarySearch(20).obtenerWebAsociadas().devolverWebPorPos(cont).obtenerId());
+            System.out.println(cont +"  :  " + webs.binarySearch(20).obtenerWebAsociadas().devolverWebPorPos(cont).obtenerId() + "  id:  " + webs.binarySearch(20).obtenerWebAsociadas().devolverWebPorPos(cont).obtenerNombre());
             cont ++;
         }
 

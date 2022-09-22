@@ -62,13 +62,24 @@ public class Main {
     public static void cargarWebrelacionadas (){
         int ind = 0;
         int cont = 0;
+        String [] idWebs;
 
         while (ind < webs.obtenerNumWebs()){ //loop de buscar las webs relacionadas
-            while (cont < webRelacionadas.obtenerListaWebs(ind).length){
+            idWebs= webRelacionadas.obtenerListaWebs(ind);
+            while (idWebs != null && cont < idWebs.length){
+                webs.binarySearch(ind).añadirWebRelacioanada(webs.binarySearch(ind).obtenerNombre(),Integer.parseInt(idWebs[cont]));
+                cont ++;
             }
-            webs.binarySearch(ind).añadirWebRelacioanada(webRelacionadas.obtenerListaWebs(ind));
+            cont = 0;
             ind ++;
+            System.out.println(ind);
         }
+        cont =0;
+        while (cont < webs.binarySearch(20).obtenerWebAsociadas().obtenerNumWebs()){ //TODO falta arreglar los nombres de las webs
+            System.out.println(cont +"  :  " + webs.binarySearch(20).obtenerWebAsociadas().devolverWebPorPos(cont).obtenerId());
+            cont ++;
+        }
+
 
     }
     public static void prueba(){

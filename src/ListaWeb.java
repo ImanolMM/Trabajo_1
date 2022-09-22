@@ -92,7 +92,6 @@ public class ListaWeb{
                 primero = mid + 1;
 
             }else if ( this.lista.get(mid).obtenerId() == id ) {
-                System.out.println("Element is found at index: " + mid);
                 numId = mid;
                 salir = true;
             }
@@ -102,7 +101,7 @@ public class ListaWeb{
             mid = (primero + ultimo)/2;
         }
         if ( primero > ultimo ){
-            System.out.println("Element is not found!");
+            System.out.println("No encontrado");
         }
         return this.lista.get (numId);
     }
@@ -117,6 +116,9 @@ public class ListaWeb{
 
     public void añadirWeb (String nomWeb, int id){
         this.lista.add (new Web(nomWeb, id));
+    }
+    public Web devolverWebPorPos (int pos){
+        return this.lista.get(pos);
     }
 
     public void quitarWeb (String s){

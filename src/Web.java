@@ -4,8 +4,7 @@ public class Web {
     //hola
     private ListaPClave pAsociadas;
     private ListaWeb wAsociadas;
-    private String nombreWeb; //id????????????????
-
+    private String nombreWeb;
     private int id;
 
     public Web (String nombreWeb, int id){

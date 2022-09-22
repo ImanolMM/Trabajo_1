@@ -48,7 +48,7 @@ public class ListaWeb{
 
     public void buscarWebRelacionadas (int id) {
         int cont = id;
-        System.out.println(id);
+        System.out.println("webRelacionada: " + id);
         try{
             Scanner entrada = new Scanner(new FileReader(System.getProperty("user.dir")+"\\src\\pld-arcs-1-N-2022-2023"));
             String linea = null;

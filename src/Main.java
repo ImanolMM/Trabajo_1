@@ -9,15 +9,14 @@ public class Main {
 //hola
     private static ListaWeb webs;
     private static ListaPClave palabras;
-
-    private static ListaWebRelacionadas webrelacionadas;
+    private static ListaWebRelacionadas webRelacionadas;
     private static boolean cargado;
 
-    protected static ListaWeb cargarArchivos(){
+    protected static void cargarArchivos(){
         try{
             webs = new ListaWeb();
             palabras = new ListaPClave();
-            webrelacionadas = new ListaWebRelacionadas();
+            webRelacionadas = new ListaWebRelacionadas();
 
             Scanner entrada = new Scanner(new FileReader(System.getProperty("user.dir")+"\\src\\index-2022-2023"));
             String linea;
@@ -39,10 +38,10 @@ public class Main {
                 if (partes.length > 1) {
                     linea = partes [1];
                     partes = linea.split(" ### ");
-                    webrelacionadas.añadirWebRelacionadas(partes);
+                    webRelacionadas.añadirWebRelacionadas(partes);
                 }
                 else{
-                    webrelacionadas.añadirWebRelacionadas(null);
+                    webRelacionadas.añadirWebRelacionadas(null);
                 }
                 asd++;
             }
@@ -54,17 +53,20 @@ public class Main {
             }
             cargado = true;
             entrada.close();
+
+            cargarWebrelacionadas();
         }
-
-
         catch (IOException e){e.printStackTrace();}
-        return webs;
+
     }
-    public void cargarWebrelacionadas (){
+    public static void cargarWebrelacionadas (){
         int ind = 0;
+        int cont = 0;
 
         while (ind < webs.obtenerNumWebs()){ //loop de buscar las webs relacionadas
-            webs.buscarWebRelacionadas(ind);
+            while (cont < webRelacionadas.obtenerListaWebs(ind).length){
+            }
+            webs.binarySearch(ind).añadirWebRelacioanada(webRelacionadas.obtenerListaWebs(ind));
             ind ++;
         }
 
@@ -80,4 +82,5 @@ public class Main {
         String p2 = "b";
         //System.out.println(p1.compareTo(p2));
     }
+
 }

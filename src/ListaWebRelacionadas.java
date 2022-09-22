@@ -11,4 +11,7 @@ public class ListaWebRelacionadas {
     public void añadirWebRelacionadas (String [] partes){
         this.lista.add(partes);
     }
+    public String [] obtenerListaWebs (int id){
+        return this.lista.get (id);
+    }
 }

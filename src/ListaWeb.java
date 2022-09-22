@@ -3,6 +3,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Scanner;
+import java.util.Arrays;
 //hola
 public class ListaWeb{
 
@@ -43,10 +44,10 @@ public class ListaWeb{
     public ArrayList <Web> enlacesSaientes (String nomWeb){
         int id = this.string2Id(nomWeb);
 
-        return this.lista.get(id).obtenerWebAsociadas().obtenerArray();
+        return null ;//this.lista.get(id).obtenerWebAsociadas().obtenerArray();
     }
 
-    public void buscarWebRelacionadas (int id) {
+    /*public void buscarWebRelacionadas (int id) {
         int cont = id;
         System.out.println("webRelacionada: " + id);
         try{
@@ -65,37 +66,46 @@ public class ListaWeb{
                 partes = linea.split(" ### ");
                 cont = 0;
 
-                while (cont < partes.length){ // hay que hacerlo por id no por posición
-                    this.buscarWebPorId(id).añadirWebRelacioanada((this.id2String(Integer.parseInt(partes [cont]))),Integer.parseInt(partes [cont]));
+                while (cont < partes.length){
+                    this.binarySearch(id).añadirWebRelacioanada((this.id2String(Integer.parseInt(partes [cont]))),Integer.parseInt(partes [cont]));
                     cont ++;
-
-                }// else?
+                }
             }
         }
         catch (IOException e){e.printStackTrace();}
-    }
+    }*/
     public ArrayList <Web> webOrdenada (){
 
         return null;
     }
 
-    public Web buscarWebPorId (int id){
-        int ind = 0;
-        boolean encontrado = false;
-        while (ind < this.lista.size() && !encontrado){
-            if (this.lista.get(ind).obtenerId() == id){
-                encontrado = true;
+    public Web binarySearch (int id){
+        int primero = 0;
+        int ultimo=this.lista.size() -1;
+        int mid = (primero + ultimo)/2;
+        int numId = 0;
+        boolean salir = false;
+
+        while( primero <= ultimo && !salir ){
+
+            if ( this.lista.get(mid).obtenerId() < id ){
+                primero = mid + 1;
+
+            }else if ( this.lista.get(mid).obtenerId() == id ) {
+                System.out.println("Element is found at index: " + mid);
+                numId = mid;
+                salir = true;
             }
             else{
-                ind ++;
+                ultimo = mid - 1;
             }
+            mid = (primero + ultimo)/2;
         }
-        return this.lista.get(ind);
+        if ( primero > ultimo ){
+            System.out.println("Element is not found!");
+        }
+        return this.lista.get (numId);
     }
-    private ArrayList <Web> obtenerArray (){
-        return this.lista;
-    }
-
     public int obtenerNumWebs (){
         return this.lista.size();
     }

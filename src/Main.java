@@ -1,5 +1,7 @@
+import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
@@ -18,20 +20,19 @@ public class Main {
             palabras = new ListaPClave();
             webRelacionadas = new ListaWebRelacionadas();
 
-            Scanner entrada = new Scanner(new FileReader(System.getProperty("user.dir")+"\\src\\index-2022-2023"));
+
+            BufferedReader entrada = new BufferedReader(new FileReader(System.getProperty("user.dir")+"\\src\\index-2022-2023"));
             String linea;
 
-            while (entrada.hasNext()){ //loop de cargar webs
-                linea = entrada.nextLine();
+            while ((linea = entrada.readLine()) != null){ //loop de cargar webs
                 String []partes = linea.split(":");
                 webs.añadirWeb(partes [1], Integer.parseInt(partes [0]));
             }
 
-            entrada = new Scanner(new FileReader(System.getProperty("user.dir")+"\\src\\pld-arcs-1-N-2022-2023"));
+            entrada = new BufferedReader(new FileReader(System.getProperty("user.dir")+"\\src\\pld-arcs-1-N-2022-2023"));
 
             int prueba= 0;// para pruebas
-            while (entrada.hasNext()){
-                linea = entrada.nextLine();
+            while ((linea = entrada.readLine()) != null){ // loop de cargar las relaciones de webs
                 String [] partes = linea.split(" ---> ");
                 System.out.println(prueba);
 
@@ -46,15 +47,16 @@ public class Main {
                 prueba++;
             }
 
-            entrada = new Scanner(new FileReader(System.getProperty("user.dir")+"\\src\\words.txt"));
-            while (entrada.hasNext()){ // loop de cargar palabras
-                linea = entrada.nextLine();
+            entrada = new BufferedReader(new FileReader(System.getProperty("user.dir")+"\\src\\words.txt"));
+            while ((linea = entrada.readLine()) != null){ // loop de cargar palabras
                 palabras.añadirPalabra(linea);
             }
             cargado = true;
             entrada.close();
 
             cargarWebrelacionadas();
+
+
         }
         catch (IOException e){e.printStackTrace();}
 

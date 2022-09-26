@@ -111,6 +111,13 @@ public class ListaWeb{
         return null;
     }
 
+    public Web buscarWebPorId (int id){
+        int ind = 0;
+        while (this.lista.get(ind).obtenerId() != id && ind < this.lista.size() -1){
+            ind ++;
+        }
+        return this.lista.get(ind);
+    }
     public void añadirWeb (String nomWeb, int id){
         this.lista.add (new Web(nomWeb, id));
     }

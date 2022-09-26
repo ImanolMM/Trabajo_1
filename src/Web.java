@@ -27,10 +27,16 @@ public class Web {
         return this.id;
     }
 
-
-
     public void añadirWebRelacioanada(String nomWeb, int id) {
         this.wAsociadas.añadirWeb(nomWeb,id);
+    }
+
+    public void añadirPalabraRelacionada (PClave palabra){
+        this.pAsociadas.añadirPalabra(palabra.obtenerNombrePalabra());
+    }
+
+    public String obtenerPalabraPorPos(int pos){
+        return this.pAsociadas.obtenerPalabraPorPos(pos).obtenerNombrePalabra();
     }
 
     public String mostrarWebRelacionada (int ind){

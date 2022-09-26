@@ -8,7 +8,11 @@ public class PClave {
         this.wAsociadas = new ListaWeb();
     }
 
-    public String obtenerPalabra (){
+    public String obtenerNombrePalabra (){
         return this.palabra;
+    }
+
+    public void añadirWebRelacioanda (Web web){
+        this.wAsociadas.añadirWeb(web.obtenerNombre(),web.obtenerId());
     }
 }

@@ -14,7 +14,16 @@ public class ListaPClave {
         return null;
     }
 
-    public void añadirPalabra (String nomP){
-        this.lista.add(new PClave(nomP));
+    public void añadirPalabra (String palabra){
+        this.lista.add(new PClave(palabra));
     }
+
+    public int obtenerNumPalabras (){
+        return this.lista.size();
+    }
+
+    public PClave obtenerPalabraPorPos (int pos){
+        return this.lista.get(pos);
+    }
+
 }

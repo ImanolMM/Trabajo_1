@@ -47,16 +47,16 @@ public class ListaWeb{
         return null ;//this.lista.get(id).obtenerWebAsociadas().obtenerArray();
     }
 
-    /*public void buscarWebRelacionadas (int id) {
-        int cont = id;
+    public void buscarWebRelacionadas (int id) {
+
+        int cont = 0;
         System.out.println("webRelacionada: " + id);
         try{
             Scanner entrada = new Scanner(new FileReader(System.getProperty("user.dir")+"\\src\\pld-arcs-1-N-2022-2023"));
             String linea = null;
 
-            while (entrada.hasNext() && cont >= 0){
+            for (cont =id; entrada.hasNext() && cont >= 0; cont --)while (entrada.hasNext() && cont >= 0){
                 linea = entrada.nextLine();
-                cont--;
             }
 
             String [] partes = linea.split(" ---> ");
@@ -64,16 +64,14 @@ public class ListaWeb{
             if (partes.length > 1) {
                 linea = partes [1];
                 partes = linea.split(" ### ");
-                cont = 0;
 
-                while (cont < partes.length){
+                for (cont = 0; cont < partes.length; cont++){
                     this.binarySearch(id).añadirWebRelacioanada((this.id2String(Integer.parseInt(partes [cont]))),Integer.parseInt(partes [cont]));
-                    cont ++;
                 }
             }
         }
         catch (IOException e){e.printStackTrace();}
-    }*/
+    }
     public ArrayList <Web> webOrdenada (){
 
         return null;

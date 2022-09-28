@@ -10,7 +10,7 @@ public class Web {
     public Web (String nombreWeb, int id){
         this.pAsociadas = new ListaPClave();
         this.wAsociadas = new ListaWeb();
-        this. nombreWeb = nombreWeb;
+        this.nombreWeb = nombreWeb;
         this.id = id;
     }
 
@@ -29,6 +29,19 @@ public class Web {
 
     public void añadirWebRelacioanada(String nomWeb, int id) {
         this.wAsociadas.añadirWeb(nomWeb,id);
+    }
+
+    public ArrayList <String> buscarCombinaciones (){
+
+        ArrayList <String> combinaciones = new ArrayList<String>();
+        int i,d = 0;
+
+        for (i = 0; i != d-3; i++){
+            for (d = i+3; d <= this.nombreWeb.length(); d++){
+                combinaciones.add(this.nombreWeb.substring(i,d));
+            }
+        }
+        return combinaciones;
     }
 
     public void añadirPalabraRelacionada (PClave palabra){

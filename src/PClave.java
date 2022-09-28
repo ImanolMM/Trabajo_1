@@ -15,4 +15,8 @@ public class PClave {
     public void añadirWebRelacioanda (Web web){
         this.wAsociadas.añadirWeb(web.obtenerNombre(),web.obtenerId());
     }
+
+    public Web obtenerWebPorPosi (int pos){
+        return this.wAsociadas.devolverWebPorPos(pos);
+    }
 }

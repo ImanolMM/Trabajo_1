@@ -13,7 +13,6 @@ public class Main{
     private static ListaWebRelacionadas webRelacionadas;
     private static HashMap <String,PClave> palabrasMap;
 
-    private static boolean cargado;
 
     protected static void cargarArchivos(){
         try{
@@ -30,13 +29,10 @@ public class Main{
 
             entrada = new BufferedReader(new FileReader(System.getProperty("user.dir")+"\\src\\index-2022-2023"));
 
-            //prueba
             int prueba = 0;
             while ((linea = entrada.readLine()) != null){ //loop de cargar webs
                 String []partes = linea.split(":");
                 webs.añadirWeb(partes [1], Integer.parseInt(partes [0]));
-                //System.out.println(prueba);
-                //prueba++;
             }
 
             entrada = new BufferedReader(new FileReader(System.getProperty("user.dir")+"\\src\\pld-arcs-1-N-2022-2023"));
@@ -56,7 +52,6 @@ public class Main{
                 }
                 prueba++;
             }
-            cargado = true;
             entrada.close();
 
             cargarWebrelacionadas();
@@ -111,12 +106,16 @@ public class Main{
         }
     }
 
-
     public static void prueba(){
         cargarArchivos();
         for (int i= 0; i< 50; i++){
             System.out.println(palabrasMap.get("casino").obtenerWebPorPosi(i).obtenerNombre());
         }
+
+        for (int i = 0; i < 10; i++){
+            System.out.println(webs.devolverWebPorPos(21).obtenerPalabraPorPos(i));
+        }
+
 
 
     }

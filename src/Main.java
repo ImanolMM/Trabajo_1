@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.util.HashMap;
 
 
-public class Main {
+public class Main{
 //hola
     private static ListaWeb webs;
     private static ListaPClave palabras;
@@ -115,7 +115,14 @@ public class Main {
     }
     public static void main(String[] args){
         prueba();
-       // HashMap <String,PClave> asd = new HashMap<String,Pclave>();
+
+       HashMap <String,PClave> asd = new HashMap<String,PClave>();
+       PClave p1 = new PClave("caca");
+       asd.put("caca",p1);
+
+       // Hay alguna llave que se llame caca? Sí, coste O (1)
+
+
     }
 
 }

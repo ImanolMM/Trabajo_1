@@ -27,8 +27,8 @@ public class Web {
         return this.id;
     }
 
-    public void añadirWebRelacioanada(String nomWeb, int id) {
-        this.wAsociadas.añadirWeb(nomWeb,id);
+    public void añadirWebRelacioanada(Web web) {
+        this.wAsociadas.añadirWeb(web);
     }
 
     public ArrayList <String> buscarCombinaciones (){
@@ -45,14 +45,11 @@ public class Web {
     }
 
     public void añadirPalabraRelacionada (PClave palabra){
-        this.pAsociadas.añadirPalabra(palabra.obtenerNombrePalabra());
+        this.pAsociadas.añadirPalabra(palabra);
     }
 
     public String obtenerPalabraPorPos(int pos){
         return this.pAsociadas.obtenerPalabraPorPos(pos).obtenerNombrePalabra();
     }
 
-    public String mostrarWebRelacionada (int ind){
-        return this.wAsociadas.id2String(ind);
-    }
 }

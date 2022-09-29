@@ -14,8 +14,8 @@ public class ListaPClave {
         return null;
     }
 
-    public void añadirPalabra (String palabra){
-        this.lista.add(new PClave(palabra));
+    public void añadirPalabra (PClave palabra){
+        this.lista.add(palabra);
     }
 
     public int obtenerNumPalabras (){

@@ -2,13 +2,9 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
-import java.util.SimpleTimeZone;
-
 
 public class Main{
-//hola
     private static ListaWeb webs;
     private static ListaWebRelacionadas webRelacionadas;
     private static HashMap <String,PClave> palabrasMap;
@@ -32,7 +28,7 @@ public class Main{
             int prueba = 0;
             while ((linea = entrada.readLine()) != null){ //loop de cargar webs
                 String []partes = linea.split(":");
-                webs.añadirWeb(partes [1], Integer.parseInt(partes [0]));
+                webs.añadirWeb(new Web(partes[1], Integer.parseInt(partes [0])));
             }
 
             entrada = new BufferedReader(new FileReader(System.getProperty("user.dir")+"\\src\\pld-arcs-1-N-2022-2023"));
@@ -62,30 +58,16 @@ public class Main{
 
     }
     public static void cargarWebrelacionadas (){
-        int ind = 0;
-        int cont = 0;
         String [] idWebs;
+        int ind,cont =0;
 
-        while (ind < webs.obtenerNumWebs()){ //loop de buscar las webs relacionadas
+        for (ind = 0; ind < webs.obtenerNumWebs(); ind++){ //loop de buscar las webs relacionadas
             idWebs= webRelacionadas.obtenerListaWebs(ind);
-            while (idWebs != null && cont < idWebs.length){
-                webs.devolverWebPorPos(ind).añadirWebRelacioanada(""/*webs.binarySearch(Integer.parseInt(idWebs [cont])).obtenerNombre()*/, Integer.parseInt(idWebs[cont]));
-                cont ++;
+            for (cont =0; idWebs != null && cont < idWebs.length; cont++){
+                webs.devolverWebPorPos(ind).añadirWebRelacioanada(webs.devolverWebPorPos(Integer.parseInt(idWebs[cont])));
             }
-            cont = 0;
-            ind ++;
             System.out.println(ind);
         }
-
-        //pruebas
-        cont =0;
-        int idWeb= 20;
-        while (cont < webs.binarySearch(idWeb).obtenerWebAsociadas().obtenerNumWebs()){
-            System.out.println(cont +"  :  " + webs.binarySearch(idWeb).obtenerWebAsociadas().devolverWebPorPos(cont).obtenerId() + "  nombre:  " + webs.binarySearch(idWeb).obtenerWebAsociadas().devolverWebPorPos(cont).obtenerNombre());
-            cont ++;
-        }
-
-
     }
 
     public static void CargarRelacionesPalabras (){

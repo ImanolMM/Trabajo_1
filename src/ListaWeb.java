@@ -1,82 +1,20 @@
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.Scanner;
-import java.util.Arrays;
+import java.util.*;
+
 //hola
 public class ListaWeb{
 
-    private ArrayList <Web> lista;
+    private HashMap <Integer, Web> lista;
 
     public ListaWeb (){
-
-        this.lista = new ArrayList<Web>();
+        this.lista = new HashMap<Integer,Web>();
     }
 
     public String id2String (int x){
 
         return this.lista.get(x).obtenerNombre();
     }
-
-    private Iterator<Web> getiterador (){
-        return this.lista.iterator();
-    }
-    public int string2Id(String s){
-
-        Iterator <Web> iterador = this.getiterador();
-        boolean salir = false;
-        int cont = 0;
-
-        while (iterador.hasNext() && !salir){
-            String web = iterador.next().obtenerNombre();
-
-            if (s.equals(web)){
-                salir = true;
-            }
-            else{
-                cont ++;
-            }
-        }
-        return cont;
-    }
-
-    public ArrayList <Web> enlacesSaientes (String nomWeb){
-        int id = this.string2Id(nomWeb);
-
-        return null ;//this.lista.get(id).obtenerWebAsociadas().obtenerArray();
-    }
-
-    public void buscarWebRelacionadas (int id) {
-
-        int cont = 0;
-        System.out.println("webRelacionada: " + id);
-        try{
-            Scanner entrada = new Scanner(new FileReader(System.getProperty("user.dir")+"\\src\\pld-arcs-1-N-2022-2023"));
-            String linea = null;
-
-            for (cont =id; entrada.hasNext() && cont >= 0; cont --)while (entrada.hasNext() && cont >= 0){
-                linea = entrada.nextLine();
-            }
-
-            String [] partes = linea.split(" ---> ");
-
-            if (partes.length > 1) {
-                linea = partes [1];
-                partes = linea.split(" ### ");
-
-                for (cont = 0; cont < partes.length; cont++){
-                    this.binarySearch(id).añadirWebRelacioanada((this.id2String(Integer.parseInt(partes [cont]))),Integer.parseInt(partes [cont]));
-                }
-            }
-        }
-        catch (IOException e){e.printStackTrace();}
-    }
-    public ArrayList <Web> webOrdenada (){
-
-        return null;
-    }
-
     public Web binarySearch (int id){
         int primero = 0;
         int ultimo= this.lista.size() -1;
@@ -103,21 +41,8 @@ public class ListaWeb{
     public int obtenerNumWebs (){
         return this.lista.size();
     }
-
-    public ArrayList <Web> word2Webs (String s){
-
-        return null;
-    }
-
-    public Web buscarWebPorId (int id){
-        int ind = 0;
-        while (this.lista.get(ind).obtenerId() != id && ind < this.lista.size() -1){
-            ind ++;
-        }
-        return this.lista.get(ind);
-    }
-    public void añadirWeb (String nomWeb, int id){
-        this.lista.add (new Web(nomWeb, id));
+    public void añadirWeb (Web web){
+        this.lista.put (web.obtenerId(), web);
     }
     public Web devolverWebPorPos (int pos){
         return this.lista.get(pos);

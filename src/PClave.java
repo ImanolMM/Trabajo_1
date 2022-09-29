@@ -1,5 +1,4 @@
 public class PClave {
-    //hola
     private String palabra;
     private ListaWeb wAsociadas;
 

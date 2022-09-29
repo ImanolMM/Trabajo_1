@@ -1,7 +1,6 @@
 import java.util.ArrayList;
 
 public class Web {
-    //hola
     private ListaPClave pAsociadas;
     private ListaWeb wAsociadas;
     private String nombreWeb;

@@ -57,6 +57,7 @@ public class Main{
         catch (IOException e){e.printStackTrace();}
 
     }
+
     public static void cargarWebrelacionadas (){
         String [] idWebs;
         int ind,cont =0;
@@ -69,6 +70,7 @@ public class Main{
             System.out.println(ind);
         }
     }
+
     public static void CargarRelacionesPalabras (){
         ArrayList<String> combinaciones;
         for (int ind = 0; ind < webs.obtenerNumWebs(); ind++){
@@ -86,6 +88,7 @@ public class Main{
             }
         }
     }
+
     public static void prueba(){
         cargarArchivos();
         for (int i= 0; i< 50; i++){
@@ -99,8 +102,8 @@ public class Main{
 
 
     }
+
     public static void main(String[] args){
         prueba();
     }
-
 }

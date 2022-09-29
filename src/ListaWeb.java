@@ -15,29 +15,6 @@ public class ListaWeb{
 
         return this.lista.get(x).obtenerNombre();
     }
-    public Web binarySearch (int id){
-        int primero = 0;
-        int ultimo= this.lista.size() -1;
-        int mid = (primero + ultimo)/2;
-        int numId = 0;
-        boolean salir = false;
-
-        while( primero <= ultimo && !salir ){
-
-            if ( this.lista.get(mid).obtenerId() < id ){
-                primero = mid + 1;
-
-            }else if ( this.lista.get(mid).obtenerId() == id ) {
-                numId = mid;
-                salir = true;
-            }
-            else{
-                ultimo = mid - 1;
-            }
-            mid = (primero + ultimo)/2;
-        }
-        return this.lista.get (numId);
-    }
     public int obtenerNumWebs (){
         return this.lista.size();
     }
@@ -47,9 +24,8 @@ public class ListaWeb{
     public Web devolverWebPorPos (int pos){
         return this.lista.get(pos);
     }
-
-    public void quitarWeb (String s){
-
+    public void quitarWeb (int id){
+        this.lista.remove(id);
     }
 
     //TODO guardar web en ficheros

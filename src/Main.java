@@ -90,14 +90,16 @@ public class Main{
     }
 
     protected static void prueba(){
-        cargarArchivos();
+        /*cargarArchivos();
         for (int i= 0; i< 50; i++){
             System.out.println(palabrasMap.get("casino").obtenerWebPorPosi(i).obtenerNombre());
         }
 
         for (int i = 0; i < 40; i++){
             System.out.println(webs.devolverWebPorPos(21).obtenerPalabraPorPos(i));
-        }
+        }*/
+        ListaWeb prueba = new ListaWeb();
+        prueba.añadirWebYArchivo(new Web("hola",0));
     }
 
     public static void main(String[] args){

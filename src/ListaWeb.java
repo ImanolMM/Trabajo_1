@@ -1,3 +1,4 @@
+import java.io.*;
 import java.util.*;
 public class ListaWeb{
 
@@ -27,6 +28,11 @@ public class ListaWeb{
 
     protected void quitarWeb (int id){
         this.lista.remove(id);
+    }
+
+    protected void añadirWebYArchivo (Web web){
+        this.lista.add(web);
+
     }
 
     //TODO guardar web en ficheros

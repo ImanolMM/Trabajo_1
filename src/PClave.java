@@ -2,20 +2,20 @@ public class PClave {
     private String palabra;
     private ListaWeb wAsociadas;
 
-    public PClave (String palabra){
+    protected PClave (String palabra){
         this.palabra = palabra;
         this.wAsociadas = new ListaWeb();
     }
 
-    public String obtenerNombrePalabra (){
+    protected String obtenerNombrePalabra (){
         return this.palabra;
     }
 
-    public void añadirWebRelacioanda (Web web){
+    protected void añadirWebRelacioanda (Web web){
         this.wAsociadas.añadirWeb(web);
     }
 
-    public Web obtenerWebPorPosi (int pos){
+    protected Web obtenerWebPorPosi (int pos){
         return this.wAsociadas.devolverWebPorPos(pos);
     }
 }

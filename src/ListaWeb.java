@@ -4,28 +4,28 @@ public class ListaWeb{
     private ArrayList <Web> lista;
 
 
-    public ListaWeb (){
+    protected ListaWeb (){
         this.lista = new ArrayList<Web>();
     }
 
-    public String id2String (int x){
+    protected String id2String (int x){
 
         return this.lista.get(x).obtenerNombre();
     }
 
-    public int obtenerNumWebs (){
+    protected int obtenerNumWebs (){
         return this.lista.size();
     }
 
-    public void añadirWeb (Web web){
+    protected void añadirWeb (Web web){
         this.lista.add (web);
     }
 
-    public Web devolverWebPorPos (int pos){
+    protected Web devolverWebPorPos (int pos){
         return this.lista.get(pos);
     }
 
-    public void quitarWeb (int id){
+    protected void quitarWeb (int id){
         this.lista.remove(id);
     }
 

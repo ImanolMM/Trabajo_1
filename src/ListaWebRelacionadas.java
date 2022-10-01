@@ -4,15 +4,15 @@ public class ListaWebRelacionadas {
     private ArrayList <String []> lista;
 
 
-    public ListaWebRelacionadas (){
+    protected ListaWebRelacionadas (){
         this.lista= new ArrayList<String[]>();
     }
 
-    public void añadirWebRelacionadas (String [] partes){
+    protected void añadirWebRelacionadas (String [] partes){
         this.lista.add(partes);
     }
 
-    public String [] obtenerListaWebs (int id){
+    protected String [] obtenerListaWebs (int id){
         return this.lista.get (id);
     }
 }

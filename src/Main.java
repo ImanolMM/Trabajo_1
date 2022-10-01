@@ -36,7 +36,7 @@ public class Main{
             prueba= 0;// para pruebas
             while ((linea = entrada.readLine()) != null){ // loop de cargar las relaciones de webs
                 String [] partes = linea.split(" ---> ");
-                System.out.println(prueba);
+                //System.out.println(prueba);
 
                 if (partes.length > 1) {
                     linea = partes [1];
@@ -58,7 +58,7 @@ public class Main{
 
     }
 
-    public static void cargarWebrelacionadas (){
+    protected static void cargarWebrelacionadas (){
         String [] idWebs;
         int ind,cont =0;
 
@@ -67,16 +67,16 @@ public class Main{
             for (cont =0; idWebs != null && cont < idWebs.length; cont++){
                 webs.devolverWebPorPos(ind).añadirWebRelacioanada(webs.devolverWebPorPos(Integer.parseInt(idWebs[cont])));
             }
-            System.out.println(ind);
+            //System.out.println(ind);
         }
     }
 
-    public static void CargarRelacionesPalabras (){
+    protected static void CargarRelacionesPalabras (){
         ArrayList<String> combinaciones;
         for (int ind = 0; ind < webs.obtenerNumWebs(); ind++){
             Web web = webs.devolverWebPorPos(ind);
             combinaciones = web.buscarCombinaciones();
-            System.out.println("PALABRAS:  "+ind);
+            //System.out.println("PALABRAS:  "+ind);
 
             for (int ind2 = 0; ind2 < combinaciones.size(); ind2 ++){
                 PClave palabraClave = palabrasMap.get(combinaciones.get(ind2));
@@ -89,7 +89,7 @@ public class Main{
         }
     }
 
-    public static void prueba(){
+    protected static void prueba(){
         cargarArchivos();
         for (int i= 0; i< 50; i++){
             System.out.println(palabrasMap.get("casino").obtenerWebPorPosi(i).obtenerNombre());

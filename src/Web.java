@@ -6,7 +6,7 @@ public class Web {
     private String nombreWeb;
     private int id;
 
-    public Web (String nombreWeb, int id){
+    protected Web (String nombreWeb, int id){
         this.pAsociadas = new ListaPClave();
         this.wAsociadas = new ListaWeb();
         this.nombreWeb = nombreWeb;
@@ -17,20 +17,20 @@ public class Web {
         return this.wAsociadas;
     }
 
-    public String obtenerNombre (){ //
+    protected String obtenerNombre (){ //
 
         return this.nombreWeb;
     }
 
-    public int obtenerId (){ //
+    protected int obtenerId (){ //
         return this.id;
     }
 
-    public void añadirWebRelacioanada(Web web) {
+    protected void añadirWebRelacioanada(Web web) {
         this.wAsociadas.añadirWeb(web);
     }
 
-    public ArrayList <String> buscarCombinaciones (){
+    protected ArrayList <String> buscarCombinaciones (){
 
         ArrayList <String> combinaciones = new ArrayList<String>();
         int i,d = 0;
@@ -43,11 +43,11 @@ public class Web {
         return combinaciones;
     }
 
-    public void añadirPalabraRelacionada (PClave palabra){
+    protected void añadirPalabraRelacionada (PClave palabra){
         this.pAsociadas.añadirPalabra(palabra);
     }
 
-    public String obtenerPalabraPorPos(int pos){
+    protected String obtenerPalabraPorPos(int pos){
         return this.pAsociadas.obtenerPalabraPorPos(pos).obtenerNombrePalabra();
     }
 

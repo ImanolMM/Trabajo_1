@@ -99,7 +99,7 @@ public class Main{
             System.out.println(webs.devolverWebPorPos(21).obtenerPalabraPorPos(i));
         }*/
         ListaWeb prueba = new ListaWeb();
-        prueba.añadirWebYArchivo(new Web("hola",0));
+        prueba.añadirWebYArchivo(new Web("hola",2));
     }
 
     public static void main(String[] args){

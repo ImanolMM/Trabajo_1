@@ -32,6 +32,15 @@ public class ListaWeb{
 
     protected void añadirWebYArchivo (Web web){
         this.lista.add(web);
+        String dirFicheroCompleto = System.getProperty("user.dir")+"\\src\\index-2022-2023";
+        try(FileWriter fw = new FileWriter(dirFicheroCompleto, true);
+            PrintWriter out = new PrintWriter(fw))
+        {
+            out.println();
+            out.print("hola");
+        } catch (IOException e) {
+
+        }
 
     }
 

@@ -1,11 +1,11 @@
 import java.util.*;
-public class ListaWeb{
+public class HashWeb{
 
-    private ArrayList <Web> lista;
+    private HashMap <Integer, Web> lista;
 
 
-    public ListaWeb (){
-        this.lista = new ArrayList<Web>();
+    public HashWeb (){
+        this.lista = new HashMap<Integer, Web>();
     }
 
     public String id2String (int x){
@@ -18,7 +18,7 @@ public class ListaWeb{
     }
 
     public void añadirWeb (Web web){
-        this.lista.add (web);
+        this.lista.put (web.obtenerId(), web);
     }
 
     public Web devolverWebPorPos (int pos){

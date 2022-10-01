@@ -5,14 +5,14 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Main{
-    private static ListaWeb webs;
+    private static HashWeb webs;
     private static ListaWebRelacionadas webRelacionadas;
     private static HashMap <String,PClave> palabrasMap;
 
 
     protected static void cargarArchivos(){
         try{
-            webs = new ListaWeb();
+            webs = new HashWeb();
             palabrasMap = new HashMap<String,PClave>();
             webRelacionadas = new ListaWebRelacionadas();
 
@@ -98,9 +98,6 @@ public class Main{
         for (int i = 0; i < 10; i++){
             System.out.println(webs.devolverWebPorPos(21).obtenerPalabraPorPos(i));
         }
-
-
-
     }
 
     public static void main(String[] args){

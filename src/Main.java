@@ -95,7 +95,7 @@ public class Main{
             System.out.println(palabrasMap.get("casino").obtenerWebPorPosi(i).obtenerNombre());
         }
 
-        for (int i = 0; i < 10; i++){
+        for (int i = 0; i < 40; i++){
             System.out.println(webs.devolverWebPorPos(21).obtenerPalabraPorPos(i));
         }
     }

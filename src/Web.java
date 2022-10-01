@@ -35,8 +35,8 @@ public class Web {
         ArrayList <String> combinaciones = new ArrayList<String>();
         int i,d = 0;
 
-        for (i = 0; i != d-3; i++){
-            for (d = i+3; d <= this.nombreWeb.length(); d++){
+        for (i = 0; i != d-1; i++){
+            for (d = i+1; d <= this.nombreWeb.length(); d++){
                 combinaciones.add(this.nombreWeb.substring(i,d));
             }
         }

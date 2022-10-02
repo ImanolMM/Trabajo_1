@@ -12,11 +12,6 @@ public class Web {
         this.nombreWeb = nombreWeb;
         this.id = id;
     }
-
-    protected ListaWeb obtenerWebAsociadas (){
-        return this.wAsociadas;
-    }
-
     protected String obtenerNombre (){ //
 
         return this.nombreWeb;

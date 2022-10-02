@@ -90,6 +90,13 @@ public class Main{
     }
 
     protected static void prueba(){
+        HashWeb prueba = new HashWeb();
+        prueba.añadirWeb(new Web("aaaaaa",0));
+        prueba.añadirWeb(new Web("bbbbbb",1));
+
+        QuickSort sort = null;
+
+        sort.quickSort(prueba.convertirArray());
         /*cargarArchivos();
         for (int i= 0; i< 50; i++){
             System.out.println(palabrasMap.get("casino").obtenerWebPorPosi(i).obtenerNombre());
@@ -98,8 +105,7 @@ public class Main{
         for (int i = 0; i < 40; i++){
             System.out.println(webs.devolverWebPorPos(21).obtenerPalabraPorPos(i));
         }*/
-        ListaWeb prueba = new ListaWeb();
-        prueba.añadirWebYArchivo(new Web("hola",2));
+
     }
 
     public static void main(String[] args){

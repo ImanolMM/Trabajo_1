@@ -46,4 +46,8 @@ public class Web {
         return this.pAsociadas.obtenerPalabraPorPos(pos).obtenerNombrePalabra();
     }
 
+    private int compareTo (Web web){
+        return web.obtenerNombre().compareTo(web.obtenerNombre());
+    }
+
 }

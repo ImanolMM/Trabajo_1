@@ -29,5 +29,13 @@ public class HashWeb{
         this.lista.remove(id);
     }
 
-    //TODO guardar web en ficheros
+    public Web[] convertirArray (){
+
+        Web [] hasTabla = new Web [this.obtenerNumWebs()];
+
+        for (int i = 0; i < this.obtenerNumWebs(); i++){
+            hasTabla [i] = this.devolverWebPorPos(i);
+        }
+        return hasTabla;
+    }
 }

@@ -29,13 +29,10 @@ public class HashWeb{
         this.lista.remove(id);
     }
 
-    public Web[] convertirArray (){
-
-        Web [] hasTabla = new Web [this.obtenerNumWebs()];
-
-        for (int i = 0; i < this.obtenerNumWebs(); i++){
-            hasTabla [i] = this.devolverWebPorPos(i);
-        }
+    public ArrayList <Web> ordenar (){
+        ArrayList <Web> hasTabla = new ArrayList <Web>(this.lista.values());
+        Collections.sort(hasTabla);
         return hasTabla;
     }
+
 }

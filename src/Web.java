@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class Web {
+public class Web implements Comparable <Web>{
     private ListaPClave pAsociadas;
     private ListaWeb wAsociadas;
     private String nombreWeb;
@@ -46,8 +46,8 @@ public class Web {
         return this.pAsociadas.obtenerPalabraPorPos(pos).obtenerNombrePalabra();
     }
 
-    private int compareTo (Web web){
-        return web.obtenerNombre().compareTo(web.obtenerNombre());
+    public int compareTo (Web web){
+        return this.obtenerNombre().compareTo(web.obtenerNombre());
     }
 
 }

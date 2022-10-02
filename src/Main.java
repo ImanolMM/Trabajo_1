@@ -62,12 +62,12 @@ public class Main{
         String [] idWebs;
         int ind,cont =0;
 
-        for (ind = 0; ind < webs.obtenerNumWebs(); ind++){ //loop de buscar las webs relacionadas
+        for (ind = 0; ind < webs.obtenerNumWebs(); ind++){
             idWebs= webRelacionadas.obtenerListaWebs(ind);
+
             for (cont =0; idWebs != null && cont < idWebs.length; cont++){
                 webs.devolverWebPorPos(ind).añadirWebRelacioanada(webs.devolverWebPorPos(Integer.parseInt(idWebs[cont])));
             }
-            //System.out.println(ind);
         }
     }
 

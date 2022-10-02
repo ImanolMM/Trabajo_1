@@ -10,7 +10,7 @@ public class Main{
     private static HashMap <String,PClave> palabrasMap;
 
 
-    protected static void cargarArchivos(){
+    public static void cargarArchivos(){
         try{
             webs = new HashWeb();
             palabrasMap = new HashMap<String,PClave>();
@@ -50,15 +50,15 @@ public class Main{
             }
             entrada.close();
 
-            cargarWebrelacionadas();
-            CargarRelacionesPalabras();
+            cargarRelacionesWebs();
+            cargarRelacionesPalabras();
 
         }
         catch (IOException e){e.printStackTrace();}
 
     }
 
-    protected static void cargarWebrelacionadas (){
+    public static void cargarRelacionesWebs (){
         String [] idWebs;
         int ind,cont =0;
 
@@ -71,7 +71,7 @@ public class Main{
         }
     }
 
-    protected static void CargarRelacionesPalabras (){
+    public static void cargarRelacionesPalabras (){
         ArrayList<String> combinaciones;
         for (int ind = 0; ind < webs.obtenerNumWebs(); ind++){
             Web web = webs.devolverWebPorPos(ind);
@@ -89,7 +89,7 @@ public class Main{
         }
     }
 
-    protected static void prueba(){
+    public static void prueba(){
         cargarArchivos();
     }
 

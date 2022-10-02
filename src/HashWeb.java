@@ -29,7 +29,7 @@ public class HashWeb{
         this.lista.remove(id);
     }
 
-    public ArrayList <Web> ordenar (){
+    public ArrayList <Web> devolverArrayOrdenado (){
         ArrayList <Web> hasTabla = new ArrayList <Web>(this.lista.values());
         Collections.sort(hasTabla);
         return hasTabla;

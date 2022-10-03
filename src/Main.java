@@ -10,20 +10,20 @@ public class Main{
     private static HashMap <String,PClave> palabrasMap;
 
 
-    public static void cargarArchivos(){
+    public static void cargarArchivos(String nomClave, String nomWeb, String nomRelaciones){
         try{
             webs = new HashWeb();
             palabrasMap = new HashMap<String,PClave>();
             webRelacionadas = new ListaWebRelacionadas();
 
             String linea;
-            BufferedReader entrada = new BufferedReader(new FileReader(System.getProperty("user.dir")+"\\src\\words.txt"));
+            BufferedReader entrada = new BufferedReader(new FileReader(System.getProperty("user.dir")+"\\src\\" + nomClave));
 
             while ((linea = entrada.readLine()) != null){ // loop de cargar palabras
                 palabrasMap.put( linea, new PClave(linea));
             }
 
-            entrada = new BufferedReader(new FileReader(System.getProperty("user.dir")+"\\src\\index-2022-2023"));
+            entrada = new BufferedReader(new FileReader(System.getProperty("user.dir")+"\\src\\" + nomWeb));
 
             int prueba = 0;
             while ((linea = entrada.readLine()) != null){ //loop de cargar webs
@@ -31,7 +31,7 @@ public class Main{
                 webs.añadirWeb(new Web(partes[1], Integer.parseInt(partes [0])));
             }
 
-            entrada = new BufferedReader(new FileReader(System.getProperty("user.dir")+"\\src\\pld-arcs-1-N-2022-2023"));
+            entrada = new BufferedReader(new FileReader(System.getProperty("user.dir")+"\\src\\" + nomRelaciones));
 
             prueba= 0;// para pruebas
             while ((linea = entrada.readLine()) != null){ // loop de cargar las relaciones de webs
@@ -90,7 +90,7 @@ public class Main{
     }
 
     public static void prueba(){
-        cargarArchivos();
+        cargarArchivos("words.txt","index-2022-2023","pld-arcs-1-N-2022-2023");
     }
 
     public static void main(String[] args){

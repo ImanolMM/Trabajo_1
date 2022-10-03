@@ -72,6 +72,7 @@ public class Main{
     }
 
     public static void cargarRelacionesPalabras (){
+
         ArrayList<String> combinaciones;
         for (int ind = 0; ind < webs.obtenerNumWebs(); ind++){
             Web web = webs.devolverWebPorPos(ind);

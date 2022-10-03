@@ -25,9 +25,15 @@ class MainTest {
 
     @Test
     void cargarRelacionesWebs() {
+        //hashmap vacío
+        //array de relaciones vacío
+        //una web sin relaciones
+        //relación con una web que no existe
+
     }
 
     @Test
     void cargarRelacionesPalabras() {
+        //relaciones con una palabra vacía ""
     }
 }

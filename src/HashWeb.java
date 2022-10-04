@@ -19,7 +19,7 @@ public class HashWeb{
 
     public void añadirWeb (String nombre, int id) throws DosWebsConMismoIdException{
 
-        if (this.lista.get(id) != null){
+        if (this.lista.get(id) == null){
             this.lista.put (id, new Web(nombre, id));
         }
         else {

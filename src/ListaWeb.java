@@ -36,12 +36,12 @@ public class ListaWeb{
             PrintWriter out = new PrintWriter(fw))
         {
             out.println();
-            out.print(web.obtenerId() + ":"+ web.obtenerNombre()); //TODO mirar si hay dos webs con mismo id
+            out.print(web.obtenerId() + ":"+ web.obtenerNombre());
         } catch (IOException e) {
 
         }
 
     }
 
-    //TODO guardar web en ficheross
+
 }

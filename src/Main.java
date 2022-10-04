@@ -7,24 +7,24 @@ import java.util.HashMap;
 public class Main{
     private static HashWeb webs;
     private static ListaWebRelacionadas webRelacionadas;
-    private static HashMap <String,PClave> palabrasMap;
+    private static HashPalabras palabrasMap;
 
     public Main (){
         webs = new HashWeb();
-        palabrasMap = new HashMap<String,PClave>();
+        palabrasMap = new HashPalabras();
         webRelacionadas = new ListaWebRelacionadas();
     }
     public static void cargarArchivos(String nomClave, String nomWeb, String nomRelaciones){
         try{
             webs = new HashWeb();
-            palabrasMap = new HashMap<String,PClave>();
+            palabrasMap = new HashPalabras();
             webRelacionadas = new ListaWebRelacionadas();
 
             String linea;
             BufferedReader entrada = new BufferedReader(new FileReader(System.getProperty("user.dir")+"\\src\\" + nomClave));
 
             while ((linea = entrada.readLine()) != null){ // loop de cargar palabras
-                palabrasMap.put( linea, new PClave(linea));
+                palabrasMap.añadirPClave( linea, new PClave(linea));
             }
 
             entrada = new BufferedReader(new FileReader(System.getProperty("user.dir")+"\\src\\" + nomWeb));
@@ -84,7 +84,7 @@ public class Main{
             //System.out.println("PALABRAS:  "+ind);
 
             for (int ind2 = 0; ind2 < combinaciones.size(); ind2 ++){
-                PClave palabraClave = palabrasMap.get(combinaciones.get(ind2));
+                PClave palabraClave = palabrasMap.obtenerPClave(combinaciones.get(ind2));
 
                 if (palabraClave != null){
                     web.añadirPalabraRelacionada(palabraClave);
@@ -94,11 +94,18 @@ public class Main{
         }
     }
 
+    protected HashWeb devolverWebs (){ //para los JUnits
+        return webs;
+    }
+
+    protected ListaWebRelacionadas devolverWebRelacionadas (){ //para los JUnits
+        return webRelacionadas;
+    }
     public static void prueba(){
-        //cargarArchivos("words.txt","index-2022-2023","pld-arcs-1-N-2022-2023");
+        cargarArchivos("words.txt","index-2022-2023","pld-arcs-1-N-2022-2023");
     }
 
     public static void main(String[] args){
-        //prueba();
+        prueba();
     }
 }

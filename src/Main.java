@@ -94,7 +94,7 @@ public class Main{
         }
     }
 
-    protected HashWeb devolverWebs (){ //para los JUnits
+    public HashWeb devolverWebs (){ //para los JUnits
         return webs;
     }
 

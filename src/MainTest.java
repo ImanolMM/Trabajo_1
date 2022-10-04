@@ -1,22 +1,25 @@
+import junit.framework.TestCase;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import java.util.HashMap;
 
-class MainTest {
-
+class MainTest extends TestCase {
+    private static Main main;
     @BeforeEach
-    void setUp() {
+    public void setUp() {
+        main = new Main();
     }
 
     @AfterEach
-    void tearDown() {
+    public void tearDown() {
     }
 
     @Test
-    void cargarArchivos() {
-        //archivo normal
+    void cargarArchivos (){
+        Main.cargarArchivos("words.txt","index-2022-2023","pld-arcs-1-N-2022-2023");
+        //assertEquals(webs.devolverWebPorPos(0).obtenerNombre(), "0-00.pl");
         //archivo con una línea sin :
         //archivo sin línea entre medias
         //archivo vacío
@@ -25,6 +28,7 @@ class MainTest {
 
     @Test
     void cargarRelacionesWebs() {
+
         //hashmap vacío
         //array de relaciones vacío
         //una web sin relaciones

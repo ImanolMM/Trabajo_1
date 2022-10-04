@@ -17,8 +17,14 @@ public class HashWeb{
         return this.lista.size();
     }
 
-    public void añadirWeb (Web web){
-        this.lista.put (web.obtenerId(), web);
+    public void añadirWeb (String nombre, int id) throws DosWebsConMismoIdException{
+
+        if (this.lista.get(id) != null){
+            this.lista.put (id, new Web(nombre, id));
+        }
+        else {
+            throw new DosWebsConMismoIdException();
+        }
     }
 
     public Web devolverWebPorPos (int pos){

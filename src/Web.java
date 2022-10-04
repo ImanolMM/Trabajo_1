@@ -6,26 +6,26 @@ public class Web implements Comparable <Web>{
     private String nombreWeb;
     private int id;
 
-    protected Web (String nombreWeb, int id){
+    public Web (String nombreWeb, int id){
         this.pAsociadas = new ListaPClave();
         this.wAsociadas = new ListaWeb();
         this.nombreWeb = nombreWeb;
         this.id = id;
     }
-    protected String obtenerNombre (){ //
+    public String obtenerNombre (){ //
 
         return this.nombreWeb;
     }
 
-    protected int obtenerId (){ //
+    public int obtenerId (){ //
         return this.id;
     }
 
-    protected void añadirWebRelacioanada(Web web) {
+    public void añadirWebRelacioanada(Web web) {
         this.wAsociadas.añadirWeb(web);
     }
 
-    protected ArrayList <String> buscarCombinaciones (){
+    public ArrayList <String> buscarCombinaciones (){
 
         ArrayList <String> combinaciones = new ArrayList<String>();
         int i,d = 0;
@@ -38,11 +38,11 @@ public class Web implements Comparable <Web>{
         return combinaciones;
     }
 
-    protected void añadirPalabraRelacionada (PClave palabra){
+    public void añadirPalabraRelacionada (PClave palabra){
         this.pAsociadas.añadirPalabra(palabra);
     }
 
-    protected String obtenerPalabraPorPos(int pos){
+    public String obtenerPalabraPorPos(int pos){
         return this.pAsociadas.obtenerPalabraPorPos(pos).obtenerNombrePalabra();
     }
 

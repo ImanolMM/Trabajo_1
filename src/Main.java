@@ -9,7 +9,11 @@ public class Main{
     private static ListaWebRelacionadas webRelacionadas;
     private static HashMap <String,PClave> palabrasMap;
 
-
+    public Main (){
+        webs = new HashWeb();
+        palabrasMap = new HashMap<String,PClave>();
+        webRelacionadas = new ListaWebRelacionadas();
+    }
     public static void cargarArchivos(String nomClave, String nomWeb, String nomRelaciones){
         try{
             webs = new HashWeb();
@@ -28,7 +32,7 @@ public class Main{
             int prueba = 0;
             while ((linea = entrada.readLine()) != null){ //loop de cargar webs
                 String []partes = linea.split(":");
-                webs.añadirWeb(new Web(partes[1], Integer.parseInt(partes [0])));
+                webs.añadirWeb(partes[1], Integer.parseInt(partes [0]));
             }
 
             entrada = new BufferedReader(new FileReader(System.getProperty("user.dir")+"\\src\\" + nomRelaciones));
@@ -54,7 +58,7 @@ public class Main{
             cargarRelacionesPalabras();
 
         }
-        catch (IOException e){e.printStackTrace();}
+        catch (IOException e){e.printStackTrace();} catch (DosWebsConMismoIdException e) {e.printStackTrace();}
 
     }
 
@@ -91,10 +95,10 @@ public class Main{
     }
 
     public static void prueba(){
-        cargarArchivos("words.txt","index-2022-2023","pld-arcs-1-N-2022-2023");
+        //cargarArchivos("words.txt","index-2022-2023","pld-arcs-1-N-2022-2023");
     }
 
     public static void main(String[] args){
-        prueba();
+        //prueba();
     }
 }

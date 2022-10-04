@@ -17,10 +17,6 @@ public class Main{
     }
     public static void cargarArchivos(String nomClave, String nomWeb, String nomRelaciones){
         try{
-            webs = new HashWeb();
-            palabrasMap = new HashPalabras();
-            webRelacionadas = new ListaWebRelacionadas();
-
             cargarPalabras(nomClave);
             cargarWebs(nomWeb);
             cargarWebrelacionadas(nomRelaciones);
@@ -33,6 +29,7 @@ public class Main{
 
     }
     public static void cargarPalabras (String nomClave) throws IOException {
+        palabrasMap = new HashPalabras();
         String linea;
         BufferedReader entrada = new BufferedReader(new FileReader(System.getProperty("user.dir")+"\\src\\" + nomClave));
 
@@ -43,19 +40,25 @@ public class Main{
         entrada.close();
     }
     public static void cargarWebs (String nomWeb) throws IOException {
+        webs = new HashWeb();
         String linea;
         BufferedReader entrada = new BufferedReader(new FileReader(System.getProperty("user.dir")+"\\src\\" + nomWeb));
 
         while ((linea = entrada.readLine()) != null){ //loop de cargar webs
             try{
                 String []partes = linea.split(":");
-                webs.añadirWeb(partes[1], Integer.parseInt(partes [0]));
-
-            } catch (DosWebsConMismoIdException e) {e.printStackTrace();}
+                if (partes.length > 1){
+                    webs.añadirWeb(partes[1], Integer.parseInt(partes [0]));
+                }
+                else{
+                    throw new LineaMalException();
+                }
+            } catch (DosWebsConMismoIdException e) {e.printStackTrace();} catch (LineaMalException e) {e.printStackTrace();}
         }
         entrada.close();
     }
     public static void cargarWebrelacionadas (String nomRelaciones) throws IOException {
+        webRelacionadas = new ListaWebRelacionadas();
         String linea;
         BufferedReader entrada = new BufferedReader(new FileReader(System.getProperty("user.dir")+"\\src\\" + nomRelaciones));
 

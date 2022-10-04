@@ -26,6 +26,7 @@ public class MainTest {
     public void cargarWebs() throws IOException {
         main.cargarWebs("index-2022-2023"); //cargar los archivos
         assertEquals(main.devolverWebs().devolverWebPorId(0).obtenerNombre(), "0-00.pl"); //la primera web se llama "0-00.pl"
+        assertEquals(main.devolverWebs().devolverWebPorId(main.devolverWebs().obtenerNumWebs() -1).obtenerNombre(), "zzzz6666.com"); // la ultima web
     }
 
     @Test

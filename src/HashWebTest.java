@@ -77,9 +77,9 @@ class HashWebTest {
     @Test
     void devolverWebPorPos() {
         //caso simple
-        assertEquals(web2.obtenerNombre(),lista1.devolverWebPorPos(2).obtenerNombre());
+        assertEquals(web2.obtenerNombre(),lista1.devolverWebPorId(2).obtenerNombre());
         //que no coincida con la pos
-        assertNotEquals(web3,lista2.devolverWebPorPos(2));
+        assertNotEquals(web3,lista2.devolverWebPorId(2));
     }
 
     @Test

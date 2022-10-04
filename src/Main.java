@@ -81,7 +81,7 @@ public class Main{
             idWebs= webRelacionadas.obtenerListaWebs(ind);
 
             for (cont =0; idWebs != null && cont < idWebs.length; cont++){
-                webs.devolverWebPorPos(ind).añadirWebRelacioanada(webs.devolverWebPorPos(Integer.parseInt(idWebs[cont])));
+                webs.devolverWebPorId(ind).añadirWebRelacioanada(webs.devolverWebPorId(Integer.parseInt(idWebs[cont])));
             }
         }
     }
@@ -90,7 +90,7 @@ public class Main{
 
         ArrayList<String> combinaciones;
         for (int ind = 0; ind < webs.obtenerNumWebs(); ind++){
-            Web web = webs.devolverWebPorPos(ind);
+            Web web = webs.devolverWebPorId(ind);
             combinaciones = web.buscarCombinaciones();
             //System.out.println("PALABRAS:  "+ind);
 

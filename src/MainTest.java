@@ -1,38 +1,55 @@
-import junit.framework.TestCase;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 
-import java.util.HashMap;
+import java.io.IOException;
 
-class MainTest extends TestCase {
-    private static Main main;
-    @BeforeEach
-    public void setUp() {
+import static org.junit.Assert.*;
+
+public class MainTest {
+    Main main;
+    @Before
+    public void setUp() throws Exception {
         main = new Main();
     }
 
-    @AfterEach
-    public void tearDown() {
+    @After
+    public void tearDown() throws Exception {
     }
 
     @Test
-    void cargarArchivos (){
-        Main.cargarArchivos("words.txt","index-2022-2023","pld-arcs-1-N-2022-2023"); //cargar los archivos
-        assertEquals(main.devolverWebs().devolverWebPorPos(0).obtenerNombre(), "0-00.pl");
-        //archivo con una línea sin :
-        //archivo sin línea entre medias
-        //archivo vacío
+    public void cargarPalabras() {
 
     }
 
     @Test
-    void cargarRelacionesWebs() {
-
+    public void cargarWebs() throws IOException {
+        main.cargarWebs("index-2022-2023"); //cargar los archivos
+        assertEquals(main.devolverWebs().devolverWebPorId(0).obtenerNombre(), "0-00.pl"); //la primera web se llama "0-00.pl"
+        assertEquals(main.devolverWebs().devolverWebPorId(main.devolverWebs().obtenerNumWebs() -1).obtenerNombre(), "zzzz6666.com"); // la ultima web
     }
 
     @Test
-    void cargarRelacionesPalabras() {
-        //relaciones con una palabra vacía ""
+    public void cargarWebrelacionadas() {
+    }
+
+    @Test
+    public void cargarRelacionesWebs() {
+    }
+
+    @Test
+    public void cargarRelacionesPalabras() {
+    }
+
+    @Test
+    public void devolverWebs() {
+    }
+
+    @Test
+    public void devolverWebRelacionadas() {
+    }
+
+    @Test
+    public void obtenerPClave() {
     }
 }

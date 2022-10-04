@@ -27,7 +27,7 @@ public class HashWeb{
         }
     }
 
-    public Web devolverWebPorPos (int pos){
+    public Web devolverWebPorId (int pos){
         return this.lista.get(pos);
     }
 

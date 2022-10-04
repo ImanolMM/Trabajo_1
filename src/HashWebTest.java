@@ -40,9 +40,6 @@ class HashWebTest {
         hasTabla.add(web1);
         hasTabla.add(web2);
         hasTabla.add(web3);
-
-
-
     }
 
     @AfterEach

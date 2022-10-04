@@ -18,7 +18,7 @@ class MainTest extends TestCase {
 
     @Test
     void cargarArchivos (){
-        Main.cargarArchivos("words.txt","index-2022-2023","pld-arcs-1-N-2022-2023");
+        Main.cargarArchivos("words.txt","index-2022-2023","pld-arcs-1-N-2022-2023"); //cargar los archivos
         assertEquals(main.devolverWebs().devolverWebPorPos(0).obtenerNombre(), "0-00.pl");
         //archivo con una línea sin :
         //archivo sin línea entre medias

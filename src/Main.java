@@ -66,9 +66,10 @@ public class Main{
             String [] partes = linea.split(" ---> ");
 
             if (partes.length > 1) {
+                int webId = Integer.parseInt(partes [0]);
                 linea = partes [1];
                 partes = linea.split(" ### ");
-                webRelacionadas.añadirWebRelacionadas(partes);
+                webRelacionadas.añadirWebRelacionadas(webId, partes);
             }
         }
         entrada.close();

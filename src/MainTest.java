@@ -48,9 +48,8 @@ public class MainTest {
         assertEquals(main1.devolverWebRelacionadas().obtenerListaWebs(0)[0],"521000");
 
         main2.cargarWebrelacionadas("cargarWebRelacionadasTest1");// una línea vacía + los id no están en orden
-        System.out.println(main2.devolverWebRelacionadas().obtenerListaWebs(4) [0]); //TODO hay que hacerlo hashmap
+        assertEquals(main2.devolverWebRelacionadas().obtenerListaWebs(4) [0],"244381"); //TODO hay que hacerlo hashmap
     }
-
     @Test
     public void cargarRelacionesWebs() {
     }

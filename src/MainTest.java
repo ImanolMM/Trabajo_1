@@ -44,11 +44,13 @@ public class MainTest {
 
     @Test
     public void cargarWebrelacionadas() throws IOException {
-        main1.cargarWebrelacionadas("pld-arcs-1-N-2022-2023");// archivo normal
+        main1.cargarWebRelacionadas("pld-arcs-1-N-2022-2023");// archivo normal
         assertEquals(main1.devolverWebRelacionadas().obtenerListaWebs(0)[0],"521000");
 
-        main2.cargarWebrelacionadas("cargarWebRelacionadasTest1");// una línea vacía + los id no están en orden
+        main2.cargarWebRelacionadas("cargarWebRelacionadasTest1");// una línea vacía + los id no están en orden
         assertEquals(main2.devolverWebRelacionadas().obtenerListaWebs(4) [0],"244381"); //TODO hay que hacerlo hashmap
+
+        main1.cargarWebRelacionadas("cargarWebRelacionadasTest2");// archivo vacío
     }
     @Test
     public void cargarRelacionesWebs() {

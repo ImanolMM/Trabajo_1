@@ -19,7 +19,7 @@ public class Main{
         try{
             cargarPalabras(nomClave);
             cargarWebs(nomWeb);
-            cargarWebrelacionadas(nomRelaciones);
+            cargarWebRelacionadas(nomRelaciones);
 
             cargarRelacionesWebs();
             cargarRelacionesPalabras();
@@ -57,7 +57,7 @@ public class Main{
         }
         entrada.close();
     }
-    public static void cargarWebrelacionadas (String nomRelaciones) throws IOException {
+    public static void cargarWebRelacionadas (String nomRelaciones) throws IOException {
         webRelacionadas = new ListaWebRelacionadas();
         String linea;
         BufferedReader entrada = new BufferedReader(new FileReader(System.getProperty("user.dir")+"\\src\\" + nomRelaciones));

@@ -70,9 +70,6 @@ public class Main{
                 partes = linea.split(" ### ");
                 webRelacionadas.añadirWebRelacionadas(partes);
             }
-            else{
-                webRelacionadas.añadirWebRelacionadas(null);
-            }
         }
         entrada.close();
     }
@@ -116,7 +113,7 @@ public class Main{
         return webRelacionadas;
     }
 
-    protected HashPalabras obtenerPClave (){ //para los JUnits
+    protected HashPalabras devolverPalabras (){ //para los JUnits
         return palabrasMap;
     }
 

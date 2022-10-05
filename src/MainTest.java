@@ -20,8 +20,13 @@ public class MainTest {
     }
 
     @Test
-    public void cargarPalabras() {
+    public void cargarPalabras() throws IOException {
+        main1.cargarPalabras("words.txt"); //cargar archivo normal
+        assertNotNull(main1.devolverPalabras().obtenerPClave("aardvark"));//existe
 
+        main2.cargarPalabras("cargarPalabrasTest1");// una línea vacía añade un "" No afecta a la ejecución
+
+        main2.cargarPalabras("cargarPalabrasTest2"); // un archivo vacío
     }
 
     @Test
@@ -34,11 +39,16 @@ public class MainTest {
         assertNull(main2.devolverWebs().devolverWebPorId(1));
         assertEquals(main2.devolverWebs().devolverWebPorId(3).obtenerNombre(),"0-200.com");
 
-        main1.cargarWebs("cargarWebTest2"); //archivo vcacío, no hace nada
+        main1.cargarWebs("cargarWebTest2"); //archivo vacío, no hace nada
     }
 
     @Test
-    public void cargarWebrelacionadas() {
+    public void cargarWebrelacionadas() throws IOException {
+        main1.cargarWebrelacionadas("pld-arcs-1-N-2022-2023");// archivo normal
+        assertEquals(main1.devolverWebRelacionadas().obtenerListaWebs(0)[0],"521000");
+
+        main2.cargarWebrelacionadas("cargarWebRelacionadasTest1");// una línea vacía + los id no están en orden
+        System.out.println(main2.devolverWebRelacionadas().obtenerListaWebs(4) [0]); //TODO hay que hacerlo hashmap
     }
 
     @Test

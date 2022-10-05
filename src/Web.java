@@ -64,4 +64,8 @@ public class Web implements Comparable <Web>{
         return this.obtenerNombre().compareTo(web.obtenerNombre());
     }
 
+    public Web obtenerWebDeWasociadas (int id){
+        return this.wAsociadas.devolverWebPorPos(id);
+    }
+
 }

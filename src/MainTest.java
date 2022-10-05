@@ -53,7 +53,12 @@ public class MainTest {
         main1.cargarWebRelacionadas("cargarWebRelacionadasTest2");// archivo vacío
     }
     @Test
-    public void cargarRelacionesWebs() {
+    public void cargarRelacionesWebs() throws IOException{
+        main1.cargarWebs("index-2022-2023");
+        main1.cargarWebRelacionadas("pld-arcs-1-N-2022-2023");
+        main1.cargarRelacionesWebs();
+        assertEquals(main1.devolverWebs().devolverWebPorId(0).obtenerWebDeWasociadas(0).obtenerId(),521000); //La web 0 en su lista de websRelacionadas tiene en su primera posicion la web 521000
+
     }
 
     @Test

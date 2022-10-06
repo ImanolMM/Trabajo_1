@@ -58,7 +58,8 @@ public class MainTest {
         main1.cargarWebRelacionadas("pld-arcs-1-N-2022-2023");
         main1.cargarRelacionesWebs();
         assertEquals(main1.devolverWebs().devolverWebPorId(0).obtenerWebDeWasociadas(0).obtenerId(),521000); //La web 0 en su lista de websRelacionadas tiene en su primera posicion la web 521000
-
+        assertNull(main1.devolverWebs().devolverWebPorId(10).obtenerWebDeWasociadas(0)); //devuelve null ya que no tiene ninguna web asociada
+        assertEquals(main1.devolverWebs().devolverWebPorId(12).obtenerWebDeWasociadas(0).obtenerId(),560446); //solo una relación
     }
 
     @Test

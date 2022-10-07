@@ -8,6 +8,7 @@ class ListaPClaveTest {
     //hola
     private static PClave palabra;
     private static PClave palabra1;
+    private static PClave palabra2;
     private static ListaPClave lista;
     private static ListaPClave listaVacia;
 
@@ -18,10 +19,12 @@ class ListaPClaveTest {
          listaVacia=new ListaPClave();
          palabra=new PClave("abc");
          palabra1=new PClave("bbb");
+         palabra2=new PClave("ccc");
 
          //añadir a la lista
          lista.añadirPalabra(palabra);
          lista.añadirPalabra(palabra1);
+         lista.añadirPalabra(palabra2);
     }
 
     @AfterEach
@@ -41,7 +44,7 @@ class ListaPClaveTest {
     }
 
     @Test
-    void obtenerNumPalabrasDeberiaSer2() {
+    void obtenerNumPalabras() {
         //caso simple
         assertEquals(2, lista.obtenerNumPalabras());
         //0 palabras
@@ -51,8 +54,12 @@ class ListaPClaveTest {
 
     @Test
     void obtenerPalabraPorPos() {
-        //Posicion valida
+        //caso simple
         assertEquals("bbb",lista.obtenerPalabraPorPos(1).obtenerNombrePalabra());
+        //primera posicion
+        assertEquals("abc",lista.obtenerPalabraPorPos(0).obtenerNombrePalabra());
+        //ultima posicion
+        assertEquals("ccc",lista.obtenerPalabraPorPos(2).obtenerNombrePalabra());
 
         //Posicion no valida
         assertThrows(IndexOutOfBoundsException.class,

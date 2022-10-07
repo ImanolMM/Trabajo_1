@@ -4,7 +4,6 @@ import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 
-import static org.junit.Assert.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -14,11 +13,13 @@ public class HashWebTest1 {
     private static Web web1;
     private static Web web2;
     private static Web web3;
+
+    private static Web web4;
+    private static  Web web5;
     private static Web webmismo;
     private static HashWeb lista1;
     private static HashWeb lista2;
     private static HashWeb lista3;
-    private static ArrayList<Web> hasTabla;
 
 
 
@@ -29,21 +30,23 @@ public class HashWebTest1 {
         webmismo=new Web("dfghjk",1);
         web2 = new Web("bbbbbbb", 2);
         web3 = new Web("ccccccc", 3);
+        web4=new Web("abbbbbb",4);
+        web5=new Web("bcccccc",5);
         lista1 = new HashWeb();
         lista2 = new HashWeb();
         lista3=new HashWeb();
-        hasTabla = new ArrayList <Web>();
+
+
 
 
         //añadir las webs
         lista1.añadirWeb(web1.obtenerNombre(),web1.obtenerId());
         lista1.añadirWeb(web2.obtenerNombre(),web2.obtenerId());
         lista1.añadirWeb(web3.obtenerNombre(),web3.obtenerId());
+        lista1.añadirWeb(web4.obtenerNombre(),web4.obtenerId());
+        lista1.añadirWeb(web5.obtenerNombre(),web5.obtenerId());
         lista2.añadirWeb(web1.obtenerNombre(),web1.obtenerId());
         lista2.añadirWeb(web2.obtenerNombre(),web2.obtenerId());
-        hasTabla.add(web1);
-        hasTabla.add(web2);
-        hasTabla.add(web3);
     }
 
     @AfterEach
@@ -100,6 +103,15 @@ public class HashWebTest1 {
 
     @Test
     void devolverArrayOrdenado() {
+        ArrayList<Web> ordenado=lista1.devolverArrayOrdenado();
+
+        assertEquals("aaaaaaa",ordenado.get(0).obtenerNombre());//primer elemento
+
+        assertEquals("abbbbbb",ordenado.get(1).obtenerNombre());//segundo elemento
+
+        assertEquals("bcccccc",ordenado.get(3).obtenerNombre());//elemento en la cuarta posicion
+
+        assertEquals("ccccccc",ordenado.get(4).obtenerNombre());//ultimo elemento
 
 
 

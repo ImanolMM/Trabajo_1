@@ -25,20 +25,27 @@ public class WebTest {
 
     @Test
     public void obtenerNombre() {
+        assertEquals(web1.obtenerNombre(),"casapaco.com");
+        assertEquals(web2.obtenerNombre(),"jaaajaj.de");
     }
 
     @Test
     public void obtenerId() {
+        assertEquals(web1.obtenerId(),1);
+        assertEquals(web2.obtenerId(),2);
     }
 
     @Test
     public void añadirWebRelacioanada() {
+        web2.añadirWebRelacioanada(web1);
+        ListaWeb lista = web2.obtenerWAsociadas();
+        assertEquals(lista.obtenerNumWebs(),1);
     }
 
     @Test
     public void buscarCombinaciones() throws DosWebsConMismoIdException {
         String palabra1 = "casa";
-        ArrayList lista = new ArrayList<>();
+        ArrayList<String> lista;
         lista = web1.buscarCombinaciones();
         String palabra2 = web1.mismaCombinacion(lista,palabra1);
         assertEquals(palabra1,palabra2);
@@ -61,14 +68,16 @@ public class WebTest {
 
     @Test
     public void añadirPalabraRelacionada() {
-
+        PClave pClave = new PClave("hola");
+        web2.añadirPalabraRelacionada(pClave);
+        assertEquals("hola",web2.obtenerPAsociadas());
     }
 
     @Test
     public void obtenerPalabraPorPos() {
+        PClave pClave = new PClave("hola");
+        web2.añadirPalabraRelacionada(pClave);
+        assertEquals("hola",web2.obtenerPalabraPorPos(1));
     }
 
-    @Test
-    public void compareTo() {
-    }
 }

@@ -22,6 +22,14 @@ public class Web implements Comparable <Web>{
         return this.id;
     }
 
+    public ListaWeb obtenerWAsociadas(){ //método para pruebas
+        return this.wAsociadas;
+    }
+
+    public ListaPClave obtenerPAsociadas(){ //método para pruebas
+        return this.pAsociadas;
+    }
+
     public void añadirWebRelacioanada(Web web) {
         this.wAsociadas.añadirWeb(web);
     }

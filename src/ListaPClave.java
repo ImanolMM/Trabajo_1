@@ -25,4 +25,8 @@ public class ListaPClave {
         return this.lista.get(pos);
     }
 
+    public ArrayList <PClave> obtenerArray(){
+        return this.lista;
+    }
+
 }

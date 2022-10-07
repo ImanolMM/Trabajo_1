@@ -73,4 +73,8 @@ public class Web implements Comparable <Web>{
         }
     }
 
+    public ArrayList <PClave> obtenerPalabrasAsociadas (){
+        return this.pAsociadas.obtenerArray();
+    }
+
 }

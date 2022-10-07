@@ -41,5 +41,7 @@ public class HashWeb{
         return hasTabla;
     }
 
-
+    public ArrayList <PClave> web2Words (Web web){
+        return this.lista.get(web.obtenerId()).obtenerPalabrasAsociadas();
+    }
 }

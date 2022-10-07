@@ -1,19 +1,17 @@
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class Main{
     private static HashWeb webs;
-    private static ListaWebRelacionadas webRelacionadas;
+    private static HashListaWebRelacionadas webRelacionadas;
     private static HashPalabras palabrasMap;
 
     public Main (){
         webs = new HashWeb();
         palabrasMap = new HashPalabras();
-        webRelacionadas = new ListaWebRelacionadas();
+        webRelacionadas = new HashListaWebRelacionadas();
     }
     public static void cargarArchivos(String nomClave, String nomWeb, String nomRelaciones){
         try{
@@ -58,7 +56,7 @@ public class Main{
         entrada.close();
     }
     public static void cargarWebRelacionadas (String nomRelaciones) throws IOException {
-        webRelacionadas = new ListaWebRelacionadas();
+        webRelacionadas = new HashListaWebRelacionadas();
         String linea;
         BufferedReader entrada = new BufferedReader(new FileReader(System.getProperty("user.dir")+"\\src\\" + nomRelaciones));
 
@@ -110,7 +108,7 @@ public class Main{
         return webs;
     }
 
-    protected ListaWebRelacionadas devolverWebRelacionadas (){ //para los JUnits
+    protected HashListaWebRelacionadas devolverWebRelacionadas (){ //para los JUnits
         return webRelacionadas;
     }
 

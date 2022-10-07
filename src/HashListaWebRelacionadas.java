@@ -1,11 +1,10 @@
-import java.util.ArrayList;
 import java.util.HashMap;
 
-public class ListaWebRelacionadas {
+public class HashListaWebRelacionadas {
     private HashMap <Integer, String []>lista;
 
 
-    protected ListaWebRelacionadas (){
+    protected HashListaWebRelacionadas(){
         this.lista= new HashMap <Integer, String []>();
     }
 

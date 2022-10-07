@@ -4,9 +4,13 @@ import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
-class HashWebTest {
+public class HashWebTest1 {
+
     private static Web web1;
     private static Web web2;
     private static Web web3;
@@ -14,8 +18,8 @@ class HashWebTest {
     private static HashWeb lista1;
     private static HashWeb lista2;
     private static HashWeb lista3;
-
     private static ArrayList<Web> hasTabla;
+
 
 
     @BeforeEach
@@ -48,10 +52,12 @@ class HashWebTest {
 
     @Test
     void id2String() {
-        //id normal
+        //id al principio
         assertEquals("aaaaaaa",lista1.id2String(web1.obtenerId()));
-
-
+        //caso simple
+        assertEquals("bbbbbbb",lista1.id2String(web2.obtenerId()));
+        //id al final
+        assertEquals("ccccccc",lista1.id2String(web3.obtenerId()));
 
 
     }
@@ -69,15 +75,20 @@ class HashWebTest {
         //lanza excepcion si tienen mismo id
         assertThrows(DosWebsConMismoIdException.class,
                 ()->{
-            lista1.añadirWeb(webmismo.obtenerNombre(),webmismo.obtenerId());
+                    lista1.añadirWeb(webmismo.obtenerNombre(),webmismo.obtenerId());
                 });
+        //el resto de casos se obvian ya que es una llamada a add
 
     }
 
     @Test
-    void devolverWebPorPos() {
+    void devolverWebPorId() {
         //caso simple
         assertEquals(web2.obtenerNombre(),lista1.devolverWebPorId(2).obtenerNombre());
+        //que sea la primera web
+        assertEquals(web1.obtenerNombre(),lista1.devolverWebPorId(1).obtenerNombre());
+        //que sea la ultima
+        assertEquals(web3.obtenerNombre(),lista1.devolverWebPorId(3).obtenerNombre());
         //que no coincida con la pos
         assertNotEquals(web3,lista2.devolverWebPorId(2));
     }
@@ -90,7 +101,7 @@ class HashWebTest {
     @Test
     void devolverArrayOrdenado() {
 
-        lista1.devolverArrayOrdenado();
+
 
         //caso simple
 

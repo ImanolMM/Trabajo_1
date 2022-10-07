@@ -1,10 +1,10 @@
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.*;
 
-class ListaPClaveTest {
+public class ListaPClaveTest {
     //hola
     private static PClave palabra;
     private static PClave palabra1;
@@ -12,8 +12,8 @@ class ListaPClaveTest {
     private static ListaPClave lista;
     private static ListaPClave listaVacia;
 
-    @BeforeEach
-    void setUp() {
+    @Before
+    public void setUp() {
         //inicializaciones
          lista=new ListaPClave();
          listaVacia=new ListaPClave();
@@ -27,24 +27,24 @@ class ListaPClaveTest {
          lista.añadirPalabra(palabra2);
     }
 
-    @AfterEach
-    void tearDown() {
+    @After
+    public void tearDown() {
     }
 
     @Test
-    void web2Words() {
+    public void web2Words() {
 
     }
 
     @Test
-    void añadirPalabra() {
+    public void añadirPalabra() {
         // caso simple
         assertEquals(1,lista.obtenerNumPalabras());
 
     }
 
     @Test
-    void obtenerNumPalabras() {
+    public void obtenerNumPalabras() {
         //caso simple
         assertEquals(2, lista.obtenerNumPalabras());
         //0 palabras
@@ -53,7 +53,7 @@ class ListaPClaveTest {
 
 
     @Test
-    void obtenerPalabraPorPos() {
+    public void obtenerPalabraPorPos() {
         //caso simple
         assertEquals("bbb",lista.obtenerPalabraPorPos(1).obtenerNombrePalabra());
         //primera posicion
@@ -65,7 +65,7 @@ class ListaPClaveTest {
         assertThrows(IndexOutOfBoundsException.class,
                 ()->{
             lista.obtenerPalabraPorPos(-1);
-                });
+        });
 
     }
 }

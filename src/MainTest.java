@@ -63,19 +63,12 @@ public class MainTest {
     }
 
     @Test
-    public void cargarRelacionesPalabras() {
-        
-    }
+    public void cargarRelacionesPalabras() throws IOException {
+        main1.cargarWebs("index-2022-2023");
+        main1.cargarPalabras("words.txt");
+        main1.cargarRelacionesPalabras();//Caso general
+        assertEquals(main1.devolverWebs().devolverWebPorId(0).obtenerPalabraPorPos(0),"p");//la web 0 tiene en su lista la parlabra "p"
+        assertEquals(main1.devolverPalabras().obtenerPClave("p").obtenerWebPorPosi(0),main1.devolverWebs().devolverWebPorId(0));//la palabra p tiene en su lista a la web 0
 
-    @Test
-    public void devolverWebs() {
-    }
-
-    @Test
-    public void devolverWebRelacionadas() {
-    }
-
-    @Test
-    public void obtenerPClave() {
     }
 }

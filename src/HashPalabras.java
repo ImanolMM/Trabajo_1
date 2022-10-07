@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class HashPalabras {
@@ -14,5 +15,9 @@ public class HashPalabras {
 
     public PClave obtenerPClave (String nombre){
         return this.lista.get (nombre);
+    }
+
+    public ArrayList<Web> word2Webs (String nombre){
+        return this.lista.get(nombre).obtenerWebRelacionadas();
     }
 }

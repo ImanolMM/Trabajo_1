@@ -1,21 +1,27 @@
+import java.util.ArrayList;
+
 public class PClave {
     private String palabra;
     private ListaWeb wAsociadas;
 
-    protected PClave (String palabra){
+    public PClave (String palabra){
         this.palabra = palabra;
         this.wAsociadas = new ListaWeb();
     }
 
-    protected String obtenerNombrePalabra (){
+    public String obtenerNombrePalabra (){
         return this.palabra;
     }
 
-    protected void añadirWebRelacioanda (Web web){
+    public void añadirWebRelacioanda (Web web){
         this.wAsociadas.añadirWeb(web);
     }
 
-    protected Web obtenerWebPorPosi (int pos){
+    public Web obtenerWebPorPosi (int pos){
         return this.wAsociadas.devolverWebPorPos(pos);
+    }
+    
+    public ArrayList<Web> obtenerWebRelacionadas(){
+        return this.wAsociadas.obtenerArray();
     }
 }

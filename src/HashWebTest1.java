@@ -1,12 +1,8 @@
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 import java.util.ArrayList;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.Assert.*;
 
 public class HashWebTest1 {
 
@@ -23,8 +19,8 @@ public class HashWebTest1 {
 
 
 
-    @BeforeEach
-    void setUp() throws DosWebsConMismoIdException {
+    @Before
+    public void setUp() throws DosWebsConMismoIdException {
         //inicializaciones
         web1 = new Web("aaaaaaa", 1);
         webmismo=new Web("dfghjk",1);
@@ -49,12 +45,12 @@ public class HashWebTest1 {
         lista2.añadirWeb(web2.obtenerNombre(),web2.obtenerId());
     }
 
-    @AfterEach
-    void tearDown() {
+    @After
+    public void tearDown() {
     }
 
     @Test
-    void id2String() {
+    public void id2String() {
         //id al principio
         assertEquals("aaaaaaa",lista1.id2String(web1.obtenerId()));
         //caso simple
@@ -66,7 +62,7 @@ public class HashWebTest1 {
     }
 
     @Test
-    void obtenerNumWebs() {
+    public void obtenerNumWebs() {
         //caso simple
         assertEquals(3,lista1.obtenerNumWebs());
         //0 si no hay webs
@@ -74,7 +70,7 @@ public class HashWebTest1 {
     }
 
     @Test
-    void añadirWeb() {
+    public void añadirWeb() {
         //lanza excepcion si tienen mismo id
         assertThrows(DosWebsConMismoIdException.class,
                 ()->{
@@ -85,7 +81,7 @@ public class HashWebTest1 {
     }
 
     @Test
-    void devolverWebPorId() {
+    public void devolverWebPorId() {
         //caso simple
         assertEquals(web2.obtenerNombre(),lista1.devolverWebPorId(2).obtenerNombre());
         //que sea la primera web
@@ -97,12 +93,12 @@ public class HashWebTest1 {
     }
 
     @Test
-    void quitarWeb() {
+    public void quitarWeb() {
         //caso simple
     }
 
     @Test
-    void devolverArrayOrdenado() {
+    public void devolverArrayOrdenado() {
         ArrayList<Web> ordenado=lista1.devolverArrayOrdenado();
 
         assertEquals("aaaaaaa",ordenado.get(0).obtenerNombre());//primer elemento

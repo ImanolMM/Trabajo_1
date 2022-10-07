@@ -64,6 +64,7 @@ public class MainTest {
 
     @Test
     public void cargarRelacionesPalabras() {
+        
     }
 
     @Test

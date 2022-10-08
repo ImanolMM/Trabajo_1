@@ -10,11 +10,10 @@ public class ListaWebTest {
     private Web web1,web2,web3,web4;
 
     @Before
-    public void setUp() throws DosWebsConMismoIdException {
+    public void setUp() {
         Web web1 = new Web("pica.si",0);
         Web web2 = new Web("gill.q",1);
-        Web web3 = new Web("www.youtube.com",3);
-        Web web4 = new Web("www.mjo.s",3);
+        Web web3 = new Web("www.youtube.com",2);
         lista1 = new ListaWeb();
         lista1.añadirWeb(web1);
         lista1.añadirWeb(web2);
@@ -22,12 +21,8 @@ public class ListaWebTest {
     }
 
     @After
-    public void tearDown() throws DosWebsConMismoIdException{
+    public void tearDown(){
         lista1 = null;
-        web1 = null;
-        web2 = null;
-        web3 = null;
-        web4 = null;
     }
 
     @Test
@@ -42,16 +37,10 @@ public class ListaWebTest {
     }
 
     @Test
-    public void añadirWeb() {
-        assertThrows(DosWebsConMismoIdException.class,
-                ()->{
-                    lista1.añadirWeb(web4);
-                });
-    }
-
-    @Test
     public void devolverWebPorPos() {
-        assertEquals(web1,lista1.devolverWebPorPos(0));
+        Web web4 = new Web("si.p",5);
+        lista1.añadirWeb(web4);
+        assertEquals(web4,lista1.devolverWebPorPos(3));
     }
 
     @Test

@@ -19,13 +19,7 @@ public class ListaWeb{
     }
 
     public void añadirWeb (Web web) {
-        int id = web.obtenerId();
-        if (this.lista.get(id) == null){
             this.lista.add(web);
-        }
-        else {
-            System.out.println("hay dos webs con el mismo Id");
-        }
     }
 
     public Web devolverWebPorPos (int pos){

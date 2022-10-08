@@ -36,13 +36,13 @@ public class HashWebTest1 {
 
 
         //añadir las webs
-        lista1.añadirWeb(web1.obtenerNombre(),web1.obtenerId());
-        lista1.añadirWeb(web2.obtenerNombre(),web2.obtenerId());
-        lista1.añadirWeb(web3.obtenerNombre(),web3.obtenerId());
-        lista1.añadirWeb(web4.obtenerNombre(),web4.obtenerId());
-        lista1.añadirWeb(web5.obtenerNombre(),web5.obtenerId());
-        lista2.añadirWeb(web1.obtenerNombre(),web1.obtenerId());
-        lista2.añadirWeb(web2.obtenerNombre(),web2.obtenerId());
+        lista1.añadirWebAHash(web1.obtenerNombre(),web1.obtenerId());
+        lista1.añadirWebAHash(web2.obtenerNombre(),web2.obtenerId());
+        lista1.añadirWebAHash(web3.obtenerNombre(),web3.obtenerId());
+        lista1.añadirWebAHash(web4.obtenerNombre(),web4.obtenerId());
+        lista1.añadirWebAHash(web5.obtenerNombre(),web5.obtenerId());
+        lista2.añadirWebAHash(web1.obtenerNombre(),web1.obtenerId());
+        lista2.añadirWebAHash(web2.obtenerNombre(),web2.obtenerId());
     }
 
     @After
@@ -74,7 +74,7 @@ public class HashWebTest1 {
         //lanza excepcion si tienen mismo id
         assertThrows(DosWebsConMismoIdException.class,
                 ()->{
-                    lista1.añadirWeb(webmismo.obtenerNombre(),webmismo.obtenerId());
+                    lista1.añadirWebAHash(webmismo.obtenerNombre(),webmismo.obtenerId());
                 });
         //el resto de casos se obvian ya que es una llamada a add
 

@@ -18,8 +18,14 @@ public class ListaWeb{
         return this.lista.size();
     }
 
-    public void añadirWeb (Web web){
-        this.lista.add (web);
+    public void añadirWeb (Web web) throws DosWebsConMismoIdException{
+        int id = web.obtenerId();
+        if (this.lista.get(id) == null){
+            this.lista.add(web);
+        }
+        else {
+            throw new DosWebsConMismoIdException();
+        }
     }
 
     public Web devolverWebPorPos (int pos){

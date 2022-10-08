@@ -30,7 +30,7 @@ public class Web implements Comparable <Web>{
         return this.pAsociadas;
     }
 
-    public void añadirWebRelacioanada(Web web) {
+    public void añadirWebRelacioanada(Web web) throws DosWebsConMismoIdException {
         this.wAsociadas.añadirWeb(web);
     }
 
@@ -45,19 +45,6 @@ public class Web implements Comparable <Web>{
             }
         }
         return combinaciones;
-    }
-
-    public String mismaCombinacion(ArrayList<String> listaCombs,String palabra){ //método para JUnit
-        Iterator<String> itr = listaCombs.iterator();
-        boolean esta = false;
-        String comb = null;
-        while (itr.hasNext() && esta == false) {
-            if (itr.next() == palabra){
-                comb = itr.next();
-                esta = true;
-            }
-        }
-        return comb;
     }
 
     public void añadirPalabraRelacionada (PClave palabra){

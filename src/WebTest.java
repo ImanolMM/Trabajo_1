@@ -13,7 +13,7 @@ public class WebTest {
 
     @Before
     public void setUp() throws Exception {
-        web1 = new Web("casapaco.com",1);
+        web1 = new Web("casa.com",1);
         web2 = new Web("jaaajaj.de",2);
     }
 
@@ -25,7 +25,7 @@ public class WebTest {
 
     @Test
     public void obtenerNombre() {
-        assertEquals(web1.obtenerNombre(),"casapaco.com");
+        assertEquals(web1.obtenerNombre(),"casa.com");
         assertEquals(web2.obtenerNombre(),"jaaajaj.de");
     }
 
@@ -44,40 +44,51 @@ public class WebTest {
 
     @Test
     public void buscarCombinaciones() throws DosWebsConMismoIdException {
-        String palabra1 = "casa";
-        ArrayList<String> lista;
-        lista = web1.buscarCombinaciones();
-        String palabra2 = web1.mismaCombinacion(lista,palabra1);
-        assertEquals(palabra1,palabra2);
-
-        palabra1 = "";
-        lista = web1.buscarCombinaciones();
-        palabra2 = web1.mismaCombinacion(lista,palabra1);
-        assertFalse(palabra1 == palabra2);
-
-        palabra1 = "c";
-        lista = web1.buscarCombinaciones();
-        palabra2 = web1.mismaCombinacion(lista,palabra1);
-        assertEquals(palabra1,palabra2);
-
-        palabra1 = "aaa";
-        lista = web2.buscarCombinaciones();
-        palabra2 = web2.mismaCombinacion(lista,palabra1);
-        assertEquals(palabra1,palabra2);
-    }
-
-    @Test
-    public void añadirPalabraRelacionada() {
-        PClave pClave = new PClave("hola");
-        web2.añadirPalabraRelacionada(pClave);
-        assertEquals("hola",web2.obtenerPAsociadas());
+        ArrayList<String> lista = new ArrayList();
+        lista.add("c");
+        lista.add("ca");
+        lista.add("cas");
+        lista.add("casa");
+        lista.add("casa.");
+        lista.add("casa.c");
+        lista.add("casa.co");
+        lista.add("casa.com");
+        lista.add("a");
+        lista.add("as");
+        lista.add("asa");
+        lista.add("asa.");
+        lista.add("asa.c");
+        lista.add("asa.co");
+        lista.add("asa.com");
+        lista.add("s");
+        lista.add("sa");
+        lista.add("sa.");
+        lista.add("sa.c");
+        lista.add("sa.co");
+        lista.add("sa.com");
+        lista.add("a");
+        lista.add("a.");
+        lista.add("a.c");
+        lista.add("a.co");
+        lista.add("a.com");
+        lista.add(".");
+        lista.add(".c");
+        lista.add(".co");
+        lista.add(".com");
+        lista.add("c");
+        lista.add("co");
+        lista.add("com");
+        lista.add("o");
+        lista.add("om");
+        lista.add("m");
+        assertEquals(lista,web1.buscarCombinaciones());
     }
 
     @Test
     public void obtenerPalabraPorPos() {
         PClave pClave = new PClave("hola");
         web2.añadirPalabraRelacionada(pClave);
-        assertEquals("hola",web2.obtenerPalabraPorPos(1));
+        assertEquals("hola",web2.obtenerPalabraPorPos(0));
     }
 
 }

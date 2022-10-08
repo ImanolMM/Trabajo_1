@@ -46,7 +46,7 @@ public class Main{
             try{
                 String []partes = linea.split(":");
                 if (partes.length > 1){
-                    webs.añadirWeb(partes[1], Integer.parseInt(partes [0]));
+                    webs.añadirWebAHash(partes[1], Integer.parseInt(partes [0]));
                 }
                 else{
                     throw new LineaMalException();
@@ -72,7 +72,7 @@ public class Main{
         }
         entrada.close();
     }
-    public static void cargarRelacionesWebs (){
+    public static void cargarRelacionesWebs () throws DosWebsConMismoIdException{
         String [] idWebs;
         int ind,cont =0;
 
@@ -85,7 +85,7 @@ public class Main{
         }
     }
 
-    public static void cargarRelacionesPalabras (){
+    public static void cargarRelacionesPalabras () throws DosWebsConMismoIdException{
 
         ArrayList<String> combinaciones;
         for (int ind = 0; ind < webs.obtenerNumWebs(); ind++){

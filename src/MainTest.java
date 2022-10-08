@@ -3,6 +3,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import static org.junit.Assert.*;
 
@@ -35,7 +36,7 @@ public class MainTest {
         assertEquals(main1.devolverWebs().devolverWebPorId(0).obtenerNombre(), "0-00.pl"); //la primera web se llama "0-00.pl"
         assertEquals(main1.devolverWebs().devolverWebPorId(main1.devolverWebs().obtenerNumWebs() -1).obtenerNombre(), "zzzz6666.com"); // la ultima web
 
-        main2.cargarWebs("cargarWebTest1"); //una línea está sin ":" entonces salta una lineaMalEception pero el resto se guarda bien
+        main2.cargarWebs("cargarWebTest1"); //una línea está sin ":" entonces salta una lineaMalEception pero el resto se guarda bien + id en mal orden
         assertNull(main2.devolverWebs().devolverWebPorId(1));
         assertEquals(main2.devolverWebs().devolverWebPorId(3).obtenerNombre(),"0-200.com");
 
@@ -69,6 +70,5 @@ public class MainTest {
         main1.cargarRelacionesPalabras();//Caso general
         assertEquals(main1.devolverWebs().devolverWebPorId(0).obtenerPalabraPorPos(0),"p");//la web 0 tiene en su lista la parlabra "p"
         assertEquals(main1.devolverPalabras().obtenerPClave("p").obtenerWebPorPosi(0),main1.devolverWebs().devolverWebPorId(0));//la palabra p tiene en su lista a la web 0
-
     }
 }

@@ -30,7 +30,7 @@ public class Web implements Comparable <Web>{
         return this.pAsociadas;
     }
 
-    public void añadirWebRelacioanada(Web web) throws DosWebsConMismoIdException {
+    public void añadirWebRelacioanada(Web web) {
         this.wAsociadas.añadirWeb(web);
     }
 

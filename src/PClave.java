@@ -13,7 +13,7 @@ public class PClave {
         return this.palabra;
     }
 
-    public void añadirWebRelacioanda (Web web) throws DosWebsConMismoIdException{
+    public void añadirWebRelacioanda (Web web) {
         this.wAsociadas.añadirWeb(web);
     }
 

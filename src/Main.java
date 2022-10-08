@@ -72,10 +72,9 @@ public class Main{
         }
         entrada.close();
     }
-    public static void cargarRelacionesWebs () throws DosWebsConMismoIdException{
+    public static void cargarRelacionesWebs (){
         String [] idWebs;
         int ind,cont =0;
-
         for (ind = 0; ind < webs.obtenerNumWebs(); ind++){
             idWebs= webRelacionadas.obtenerListaWebs(ind);
 
@@ -85,23 +84,25 @@ public class Main{
         }
     }
 
-    public static void cargarRelacionesPalabras () throws DosWebsConMismoIdException{
+    public static void cargarRelacionesPalabras () {
 
         ArrayList<String> combinaciones;
-        for (int ind = 0; ind < webs.obtenerNumWebs(); ind++){
-            Web web = webs.devolverWebPorId(ind);
-            combinaciones = web.buscarCombinaciones();
-            //System.out.println("PALABRAS:  "+ind);
 
-            for (int ind2 = 0; ind2 < combinaciones.size(); ind2 ++){
-                PClave palabraClave = palabrasMap.obtenerPClave(combinaciones.get(ind2));
+            for (int ind = 0; ind < webs.obtenerNumWebs(); ind++){
+                Web web = webs.devolverWebPorId(ind);
+                combinaciones = web.buscarCombinaciones();
+                //System.out.println("PALABRAS:  "+ind);
 
-                if (palabraClave != null){
-                    web.añadirPalabraRelacionada(palabraClave);
-                    palabraClave.añadirWebRelacioanda(web);
+                for (int ind2 = 0; ind2 < combinaciones.size(); ind2 ++){
+                    PClave palabraClave = palabrasMap.obtenerPClave(combinaciones.get(ind2));
+
+                    if (palabraClave != null){
+                        web.añadirPalabraRelacionada(palabraClave);
+                        palabraClave.añadirWebRelacioanda(web);
+                    }
                 }
             }
-        }
+
     }
 
     protected HashWeb devolverWebs (){ //para los JUnits

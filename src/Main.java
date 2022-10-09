@@ -84,7 +84,6 @@ public class Main{
             }
         }
     }
-
     public static void cargarRelacionesPalabras () {
 
         ArrayList<String> combinaciones;

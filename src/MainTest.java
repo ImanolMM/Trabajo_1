@@ -22,11 +22,11 @@ public class MainTest {
 
     @Test
     public void cargarPalabras() throws IOException {
-        //// assertNotNull(main1.devolverPalabras().obtenerPClave("aardvark"));//existe
+        assertNotNull(main1.devolverPalabras().obtenerPClave("aardvark"));//existe
 
         main2.cargarPalabras("cargarPalabrasTest1");// una línea vacía añade un "" No afecta a la ejecución
 
-        //main2.cargarPalabras("cargarPalabrasTest2"); // un archivo vacío
+        main2.cargarPalabras("cargarPalabrasTest2"); // un archivo vacío
     }
 
     @Test

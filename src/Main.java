@@ -32,8 +32,9 @@ public class Main{
         BufferedReader entrada = new BufferedReader(new FileReader(System.getProperty("user.dir")+"\\src\\" + nomClave));
 
         while ((linea = entrada.readLine()) != null){ // loop de cargar palabras
-
-            palabrasMap.añadirPClave( linea, new PClave(linea));
+            if (!linea.isBlank()){
+                palabrasMap.añadirPClave( linea, new PClave(linea));
+            }
         }
         entrada.close();
     }

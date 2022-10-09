@@ -37,7 +37,7 @@ public class ListaWeb{
         {
             out.println();
             out.print(web.obtenerId() + ":"+ web.obtenerNombre());
-        } catch (IOException e) {
+        } catch (IOException e){
 
         }
     }

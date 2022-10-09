@@ -9,18 +9,23 @@ import static org.junit.Assert.assertFalse;
 
 public class WebTest {
 
-    private Web web1,web2;
+    private Web web1,web2,web3;
+    private PClave p1;
 
     @Before
     public void setUp() throws Exception {
         web1 = new Web("casa.com",1);
         web2 = new Web("jaaajaj.de",2);
+        web3 = new Web("hola.net",3);
+        p1 = new PClave("hola");
     }
 
     @After
     public void tearDown() throws Exception {
         web1 = null;
         web2 = null;
+        web3 = null;
+        p1 = null;
     }
 
     @Test
@@ -89,6 +94,14 @@ public class WebTest {
         PClave pClave = new PClave("hola");
         web2.añadirPalabraRelacionada(pClave);
         assertEquals("hola",web2.obtenerPalabraPorPos(0));
+    }
+
+
+    @Test
+    public void añadirPalabraRelacionada() {
+        web3.añadirPalabraRelacionada(p1);
+        ListaPClave lista = web3.obtenerPAsociadas();
+        assertEquals(lista.obtenerPalabraPorPos(0),p1);
     }
 
 }

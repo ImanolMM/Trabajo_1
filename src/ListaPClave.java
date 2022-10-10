@@ -11,7 +11,7 @@ public class ListaPClave {
     protected ArrayList <PClave> web2Words (String s){
 
         return null;
-    } //TODO
+    }
 
     protected void añadirPalabra (PClave palabra){
         this.lista.add(palabra);
